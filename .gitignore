@@ -1,3 +1,6 @@
 .vagrant/
 /var/logs/*
 !/var/logs/.keepme
+!/var/cache/.keepme
+/var/cache/*
+/vendor/
