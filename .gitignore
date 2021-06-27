@@ -1,3 +1,5 @@
 .vagrant/
+Vagrantfile
+README.VM.md
 /var/logs/*
 !/var/logs/.keepme
