@@ -60,6 +60,9 @@ if [ -e /usr/local/bin/composer ]; then
 else
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 fi
+if [ -e /var/www/composer.json ]; then
+    cd /var/www/ && composer install
+fi
 
 cd ~
 
