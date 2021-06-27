@@ -4,3 +4,5 @@
 !/var/cache/.keepme
 /var/cache/*
 /vendor/
+!/var/data/database/.keepme
+/var/data/database/
