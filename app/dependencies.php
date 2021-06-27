@@ -9,6 +9,8 @@ use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Slim\Views\PhpRenderer;
+use App\Uniphpant\Uri\Uri;
+use App\Uniphpant\Uri\UriInterface;
 
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
@@ -28,6 +30,9 @@ return function (ContainerBuilder $containerBuilder) {
         },
         PhpRenderer::class => function (ContainerInterface $container) {
             return new PhpRenderer();
-        }
+        },
+        UriInterface::class => function (ContainerInterface $c) {
+            return new Uri();
+        },
     ]);
 };
