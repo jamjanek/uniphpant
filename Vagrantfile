@@ -26,13 +26,13 @@ service memcached start
 
 # Configure Apache
 echo "<VirtualHost *:80>
-	DocumentRoot \"/var/www/public\"
+	DocumentRoot \"/var/www/sites/default/public\"
 	AllowEncodedSlashes On
 
 	ServerName "uniphpant.local.vm";
 	ServerAlias "www.uniphpant.local.vm";
 
-	<Directory \"/var/www/public\">
+	<Directory \"/var/www/sites/default/public\">
 		Options +Indexes +FollowSymLinks
 		DirectoryIndex index.php index.html
 		Order allow,deny
