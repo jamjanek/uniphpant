@@ -1,0 +1,32 @@
+{
+  "sites": {
+    "default": {
+      "settings": {
+        "config": {
+          "logger_level":3,
+          "config_glob_paths":"/config/*.{json,yaml,php}",
+          "config_cache_key":"app__default_config_cache_key_%s",
+          "config_cache_enabled":true,
+          "config_cache_perm":644,
+          "cache_dir":"/var/cache",
+          "dir_path": "default",
+          "dir_data_glob_path": "/data/content/data-*.{json,yaml,php}",
+          "data_cache_enabled":false,
+          "data_cache_perm":644,
+          "data_cache_dir":"/var/cache",
+          "data_structure_cache_enabled":false,
+          "data_structure_cache_perm":644,
+          "data_structure_cache_dir":"/var/cache",
+          "dir_data_structure_glob_path": "/data/structure.{json,yaml,php}"
+        },
+        "data_source": {
+          "filesystem_content": {
+            "site_id": "default",
+            "machine_name": "filesystem_content",
+            "type": "filesystem"
+          }
+        }
+      }
+    }
+  }
+}

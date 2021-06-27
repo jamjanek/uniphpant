@@ -1,0 +1,11 @@
+{
+  "sites": {
+    "default": {
+      "site-id": "default",
+      "host":"standalone.uniphant.local.vm",
+      "hosts": ["localhost:8080","localhost","standalone.uniphant.local.vm:80"],
+      "dir_path": "default",
+      "data_resource_type": "filesystem"
+    }
+  }
+}
