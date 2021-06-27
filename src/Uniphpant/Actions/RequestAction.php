@@ -25,7 +25,6 @@ class RequestAction extends Action
     {
         $templatesPath = __DIR__.'/../../../templates';
         $this->renderer->setTemplatePath($templatesPath);
-
         return $this->renderer->render(
             $this->response,
             "default.php",

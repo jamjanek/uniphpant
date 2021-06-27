@@ -14,6 +14,9 @@ use Psr\Log\LoggerInterface;
 
 class HostCurrentMiddleware implements Middleware
 {
+
+    const ATTR_NAME = "current_host";
+
     /**
      * @var UriInterface
      */
@@ -23,8 +26,6 @@ class HostCurrentMiddleware implements Middleware
      * @var LoggerInterface
      */
     private $logger;
-
-    protected $attribute_name = "current_host";
 
     public function __construct(LoggerInterface $logger, UriInterface $uri)
     {
@@ -40,7 +41,7 @@ class HostCurrentMiddleware implements Middleware
         if (php_sapi_name() !== 'cli') {
             $uri = $this->uri::factory((string)$request->getUri());
 
-            $this->logger->debug(get_class($this) . ":: Determine ".$this->attribute_name);
+            $this->logger->debug(get_class($this) . ":: Determine ".self::ATTR_NAME);
 
 
             if ( ! is_null($uri->getPort())) {
@@ -51,7 +52,7 @@ class HostCurrentMiddleware implements Middleware
 
             $this->logger->debug(get_class($this) . ":: Current Host is " . var_export($host,true));
 
-            $request = $request->withAttribute($this->attribute_name, $host);
+            $request = $request->withAttribute(self::ATTR_NAME, $host);
         } else {
             $this->logger->debug(get_class($this) . ":: CLI as no HOST.");
         }

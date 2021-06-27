@@ -21,7 +21,7 @@ use Laminas\Uri\UriFactory;
  */
 class HostNameMiddleware implements Middleware
 {
-    protected $attribute_name = "hostname";
+    const ATTR_NAME = "hostname";
     
     /**
      * {@inheritdoc}
@@ -37,7 +37,7 @@ class HostNameMiddleware implements Middleware
                 $host = sprintf("%s://%s", $uri->getScheme(), $uri->getHost());
             }
 
-            $request = $request->withAttribute($this->attribute_name, $host);
+            $request = $request->withAttribute(self::ATTR_NAME, $host);
         }
 
         return $handler->handle($request);
