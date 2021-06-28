@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Uniphpant\Site\Middleware;
 
+use App\Uniphpant\Request\Middleware\HostCurrentMiddleware;
+use App\Uniphpant\Settings\Middleware\SiteDeclarationMiddleware;
 use App\Uniphpant\Settings\Reader\JsonInterface;
 use App\Uniphpant\Uri\UriInterface;
 use Laminas\ConfigAggregator\ArrayProvider;
@@ -19,28 +21,16 @@ use Symfony\Component\Console\Input\ArgvInput;
 
 class SiteIdMiddleware implements Middleware
 {
-    /**
-     * @var UriInterface
-     */
     private $uri;
 
-    /**
-     * @var JsonInterface
-     */
-    private $json_reader;
-
-    /**
-     * @var LoggerInterface
-     */
     private $logger;
 
     const ATTR_NAME = "site_id";
 
-    public function __construct(LoggerInterface $logger, UriInterface $uri, JsonInterface $json_reader)
+    public function __construct(LoggerInterface $logger, UriInterface $uri)
     {
         $this->logger = $logger;
         $this->uri = $uri;
-        $this->json_reader = $json_reader;
     }
 
     /**
@@ -49,39 +39,17 @@ class SiteIdMiddleware implements Middleware
     public function process(Request $request, RequestHandler $handler): Response
     {
         if (php_sapi_name() !== 'cli') {
-            $host = $request->getAttribute('current_host');
+            $siteDeclaration = $request->getAttribute(SiteDeclarationMiddleware::ATTR_NAME);
 
-            $configPath = __DIR__ . '/../../../../sites/site-*.{json,yaml,php}';
-
-            $aggregator = new ConfigAggregator(
-                [
-                    new ArrayProvider([
-                        ConfigAggregator::ENABLE_CACHE => false,
-                        ConfigAggregator::CACHE_FILEMODE => 666
-                    ]),
-                    new LaminasConfigProvider($configPath),
-                ],
-                __DIR__ . '/../../../../var/cache/sites.php'
-            );
-
-            $mergedConfig = $aggregator->getMergedConfig();
-
-
-            if( array_key_exists('sites',$mergedConfig)) {
-                foreach($mergedConfig['sites'] as $instance) {
-                    if(in_array($host,$instance['hosts'])) {
-                        $request = $request->withAttribute(self::ATTR_NAME, $instance['site-id']);
-                        break;
-                    }
-                }
-            }
-
-            if(null===$request->getAttribute(self::ATTR_NAME)||empty($request->getAttribute(self::ATTR_NAME))) {
+            if(array_key_exists('site-id',$siteDeclaration)) {
+                $this->logger->info(self::ATTR_NAME . " is set to " . $siteDeclaration['site-id']);
+                // finally set the Requests Attribute
+                $request = $request->withAttribute(self::ATTR_NAME, $siteDeclaration['site-id']);
+            } else {
                 $this->logger->debug("Can not determine SiteId.");
+
                 throw new HttpNotFoundException($request, "SiteId not found.");
             }
-            $this->logger->debug(get_class($this) . ":: site_id: ".var_export($request->getAttribute(self::ATTR_NAME),true)." for host: " . var_export($host,true));
-
         } else {
             $siteId = (new ArgvInput())->getParameterOption(['--site', '-s'], 'default');
             $request = $request->withAttribute(self::ATTR_NAME, $siteId);

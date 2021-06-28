@@ -3,16 +3,18 @@ declare(strict_types=1);
 
 namespace App\Uniphpant\Request\Middleware;
 
+use Laminas\Uri\UriFactory;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface as Middleware;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
-use Laminas\Uri\UriFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * Determine Hostname for the current Request
- * Get Uri from Laminas\Uri\UriFactory and compose `scheme://host[:port]` string and set it as Requests attribute `hostname`.
- * Attribute: hostname
+ * Get Uri from Laminas\Uri\UriFactory and compose `scheme://host[:port]` string and set it as Requests attribute `host_url`.
+ * 
+ * Attribute: host_url
  */
 
 /**
@@ -21,11 +23,14 @@ use Laminas\Uri\UriFactory;
  */
 class HostNameMiddleware implements Middleware
 {
-    const ATTR_NAME = "hostname";
-    
-    /**
-     * {@inheritdoc}
-     */
+    const ATTR_NAME = "host_url";
+
+    private $logger;
+
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
     public function process(Request $request, RequestHandler $handler): Response
     {
         if(PHP_SAPI !== 'cli') {
@@ -36,6 +41,8 @@ class HostNameMiddleware implements Middleware
             } else {
                 $host = sprintf("%s://%s", $uri->getScheme(), $uri->getHost());
             }
+
+            $this->logger->info(self::ATTR_NAME . " is set to " . $host);
 
             $request = $request->withAttribute(self::ATTR_NAME, $host);
         }

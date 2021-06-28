@@ -1,4 +1,4 @@
-.vagrant/
+/.vagrant/
 /var/logs/*
 !/var/logs/.keepme
 !/var/cache/.keepme
@@ -6,3 +6,5 @@
 /vendor/
 !/var/data/database/.keepme
 /var/data/database/
+!/sites/*/var/cache/.keepme
+/sites/*/var/cache/*

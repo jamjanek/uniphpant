@@ -11,20 +11,21 @@ use Psr\Http\Server\MiddlewareInterface as Middleware;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Determine the current host for the ongoing Request.
+ * 
+ * Get Uri from Laminas\Uri\UriFactory and compose `host[:port]` string and set it as Requests attribute `current_host`.
+ * 
+ * Attribute: current_host
+ */
 
-class HostCurrentMiddleware implements Middleware
+class CurrentHostMiddleware implements Middleware
 {
 
     const ATTR_NAME = "current_host";
 
-    /**
-     * @var UriInterface
-     */
     private $uri;
 
-    /**
-     * @var LoggerInterface
-     */
     private $logger;
 
     public function __construct(LoggerInterface $logger, UriInterface $uri)
@@ -32,29 +33,23 @@ class HostCurrentMiddleware implements Middleware
         $this->logger = $logger;
         $this->uri = $uri;
     }
-
-    /**
-     * {@inheritdoc}
-     */
+    
     public function process(Request $request, RequestHandler $handler): Response
     {
         if (php_sapi_name() !== 'cli') {
             $uri = $this->uri::factory((string)$request->getUri());
 
-            $this->logger->debug(get_class($this) . ":: Determine ".self::ATTR_NAME);
+            $currentHost = (is_null($uri->getPort()))
+                ? sprintf("%s:%s", $uri->getHost(), $uri->getPort())
+                : sprintf("%s", $uri->getHost())
+            ;   
 
+            $this->logger->info(self::ATTR_NAME . " is set to " . $currentHost);
 
-            if ( ! is_null($uri->getPort())) {
-                $host = sprintf("%s:%s", $uri->getHost(), $uri->getPort());
-            } else {
-                $host = sprintf("%s", $uri->getHost());
-            }
+            $request = $request->withAttribute(self::ATTR_NAME, strtolower($currentHost));
 
-            $this->logger->debug(get_class($this) . ":: Current Host is " . var_export($host,true));
-
-            $request = $request->withAttribute(self::ATTR_NAME, $host);
         } else {
-            $this->logger->debug(get_class($this) . ":: CLI as no HOST.");
+            $this->logger->debug( php_sapi_name() . " has no HOST.");
         }
 
         return $handler->handle($request);
