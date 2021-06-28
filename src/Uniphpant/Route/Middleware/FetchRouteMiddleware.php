@@ -15,11 +15,12 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Psr\Log\LoggerInterface;
 use Slim\Routing\RouteContext;
 
+/**
+ * Attribute: site_route
+ */
+
 class FetchRouteMiddleware implements Middleware
 {
-    /**
-     * @var LoggerInterface
-     */
     private $logger;
 
     const ATTR_NAME = "site_route";

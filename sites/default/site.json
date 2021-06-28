@@ -2,21 +2,12 @@
   "sites": {
     "default": {
       "site-id": "default",
-      "settings": {
-        "config": {
-          "logger_level":3,
-          "glob_paths":"/config/*.{json,yaml,php}",
-          "cache_key":"app__default_config_cache_key_%s",
-          "cache_enabled":true,
-          "cache_perm":644,
-          "cache_dir":"/var/cache"
+      "spa": {
+        "settings": {
+          "cache_enabled":true
         },
-        "data_source": {
-          "filesystem_content": {
-            "site_id": "default",
-            "machine_name": "filesystem_content",
-            "type": "filesystem"
-          }
+        "config": {
+          "cache_enabled":true
         }
       }
     }

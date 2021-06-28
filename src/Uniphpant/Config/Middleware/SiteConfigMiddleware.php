@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Uniphpant\Config\Middleware;
 
-use App\Uniphpant\Settings\Reader\JsonInterface;
-use App\Uniphpant\Uri\UriInterface as UriInterface;
+use App\Uniphpant\Settings\Middleware\SPASettingsMiddleware;
+use App\Uniphpant\Settings\Middleware\SiteDeclarationMiddleware;
 use Laminas\ConfigAggregator\ArrayProvider;
 use Laminas\ConfigAggregator\ConfigAggregator;
 use Laminas\ConfigAggregator\LaminasConfigProvider;
@@ -16,67 +16,55 @@ use Psr\Log\LoggerInterface;
 
 class SiteConfigMiddleware implements Middleware
 {
-    /**
-     * @var LoggerInterface
-     */
+    
+    const ATTR_NAME = "site_config";
+    const TYPE="spa";
+    const INDEX = "config";
+
     private $logger;
 
-    const ATTR_NAME = "site_config";
-
-    /**
-     * @var \App\Site\Service\SiteSettingsService 
-     */
-    protected $siteSettingsService;
-
-    /**
-     * @var JsonInterface
-     */
-    protected $jsonReader;
-
-    public function __construct(LoggerInterface $logger,
-                                JsonInterface $jsonReader
+    public function __construct(LoggerInterface $logger
     )
     {
         $this->logger = $logger;
-        $this->jsonReader = $jsonReader;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function process(Request $request, RequestHandler $handler): Response
     {
-        $host = $request->getAttribute('host');
-        $site_id = $request->getAttribute('site_id');
-        $site_settings = $request->getAttribute('site_settings');
-        if(null===$host||null===$site_id||null===$site_settings) {
+        $spaSettings = $request->getAttribute(SPASettingsMiddleware::ATTR_NAME);
+        $siteDeclaration = $request->getAttribute(SiteDeclarationMiddleware::ATTR_NAME);
 
-        }
+        $siteConfigPath = sprintf(
+            "%s/../../../../sites/%s/%s",
+            __DIR__,
+            $siteDeclaration['dir_path'],
+            $spaSettings[self::INDEX]['glob_paths']
+        );
+        $cachePath = sprintf(
+        "%s/../../../../sites/%s/%s",
+        __DIR__,
+        $siteDeclaration['dir_path'],
+        $spaSettings[self::INDEX]['cache_dir']
+    );
 
-        if($site_settings['config']['config_cache_enabled']===true) {
-            $this->logger->debug(get_class($this) . ":: Site Config [pre]; Host: " . $host . " ; Site Id: " . $site_id);
+        $cachedConfigFile = $cachePath . $spaSettings[self::INDEX]['cache_key'] .'.php';
 
-            // read site specific config
-            $configPath = __DIR__ . '/../../../sites/'.$site_settings['config']['dir_path'].$site_settings['config']['config_glob_paths'];
-            // read the site specific cache dir
-            $configCacheDir = __DIR__ . '/../../../sites/'.$site_settings['config']['dir_path'].$site_settings['config']['cache_dir'];
+        $aggregator = new ConfigAggregator(
+            [
+                new ArrayProvider([
+                    ConfigAggregator::ENABLE_CACHE => $spaSettings[self::INDEX]['cache_enabled'],
+                    ConfigAggregator::CACHE_FILEMODE => $spaSettings[self::INDEX]['cache_perm']
+                ]),
+                new LaminasConfigProvider($siteConfigPath),
+            ],
+            $cachedConfigFile
+        );
 
+        $mergedConfig = $aggregator->getMergedConfig();
 
-            $aggregator = new ConfigAggregator(
-                [
-                    new ArrayProvider([
-                        ConfigAggregator::ENABLE_CACHE => $site_settings['config']['config_cache_enabled'],
-                        ConfigAggregator::CACHE_FILEMODE => $site_settings['config']['config_cache_perm']
-                    ]),
-                    new LaminasConfigProvider($configPath),
-                ],
-                $configCacheDir.'/config-cache.php'
-            );
+        $request = $request->withAttribute(self::ATTR_NAME, $mergedConfig['site']['config']);
 
-            $mergedConfig = $aggregator->getMergedConfig();
-
-            $request = $request->withAttribute(self::ATTR_NAME, $mergedConfig['site'][$site_id]);
-        }
+        $this->logger->info(self::ATTR_NAME . " is set.");
 
         return $handler->handle($request);
     }

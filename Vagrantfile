@@ -22,6 +22,21 @@ apt-get install -y php7.4-sqlite php-xml php-bcmath php-bz2 php-cli php-curl php
 
 apt-get install -y libapache2-mod-php
 
+sudo apt-get install -y php-xdebug
+
+echo "\n[xdebug]" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.default_enable=1" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.remote_autostart=0" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.remote_connect_back=1" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.remote_enable=1" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.remote_port=9000" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.remote_host='127.0.0.1'" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.idekey='PHPSTORM'" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.remote_mode=req" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.var_display_max_depth='-1'" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.var_display_max_children='-1'" >> /etc/php/7.4/mods-available/xdebug.ini
+echo "xdebug.var_display_max_data='-1'" >> /etc/php/7.4/mods-available/xdebug.ini
+
 service memcached start
 
 # Configure Apache
@@ -64,6 +79,9 @@ if [ -e /var/www/composer.json ]; then
     cd /var/www/ && composer install
     composer dump-autoload -o
 fi
+
+# install SQL schema
+sh ./dist/install/install_content_sqlite3.sh default
 
 cd ~
 
