@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require __DIR__ . '/../vendor/autoload.php';
+
 use App\Application\Handlers\HttpErrorHandler;
 use App\Application\Handlers\ShutdownHandler;
 use App\Application\ResponseEmitter\ResponseEmitter;
@@ -8,8 +10,12 @@ use App\Uniphpant\Settings\SettingsInterface;
 use DI\ContainerBuilder;
 use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
+use Symfony\Component\Dotenv\Dotenv;
 
-require __DIR__ . '/../vendor/autoload.php';
+if( ! isset($dotenv)) {
+    $dotenv = new Dotenv();
+}
+$dotenv->load(__DIR__.'/../.env');
 
 // Instantiate PHP-DI ContainerBuilder
 $containerBuilder = new ContainerBuilder();
