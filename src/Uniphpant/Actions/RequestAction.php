@@ -29,6 +29,7 @@ class RequestAction extends Action
             $this->response,
             "default.php",
             [
+                'current_route' => $this->request->getAttribute('table_gateway')->offsetGet('route_db')->select()->current(),
                 'display_text'=>'Hello World!'
             ]
         );

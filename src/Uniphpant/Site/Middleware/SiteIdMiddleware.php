@@ -55,8 +55,6 @@ class SiteIdMiddleware implements Middleware
             $request = $request->withAttribute(self::ATTR_NAME, $siteId);
         }
 
-
-
         return $handler->handle($request);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Uniphpant\Route\Middleware;
+namespace App\Uniphpant\TableGateway\Middleware;
 
 use App\Uniphpant\TableGateway\Service\TableGatewayService;
 use App\Uniphpant\Config\Middleware\SiteConfigMiddleware;
@@ -16,15 +16,15 @@ use Laminas\Db\Adapter\Adapter as dbAdapter;
 use Laminas\Db\TableGateway\TableGateway;
 
 /**
- * Attribute: site_route
+ * Attribute: table_gateway
  */
 
-class RouteDataMiddleware implements Middleware
+class TableGatewayMiddleware implements Middleware
 {
     private $logger;
     private $tableGatewayService;
 
-    const ATTR_NAME = "site_route";
+    const ATTR_NAME = "table_gateway";
 
     public function __construct(LoggerInterface $logger, TableGatewayService $tableGatewayService)
     {
@@ -37,8 +37,6 @@ class RouteDataMiddleware implements Middleware
      */
     public function process(Request $request, RequestHandler $handler): Response
     {
-        $routeMethods = $request->getAttribute(FetchRouteMiddleware::ATTR_NAME)->getMethods();
-        $routeName = $request->getAttribute(FetchRouteMiddleware::ATTR_NAME)->getName();
         $siteConfig = $request->getAttribute(SiteConfigMiddleware::ATTR_NAME);
 
         $siteRouteConfig = $siteConfig['route'];
@@ -54,17 +52,20 @@ class RouteDataMiddleware implements Middleware
                             if (array_key_exists('data_source',$tableGatewayConfig)) {
                                 foreach($siteConfig['data_source'] as $dataSourceConfig) {
                                     if($dataSourceConfig['name']===$tableGatewayConfig['data_source']) {
+
                                         $dataAdapter = new dbAdapter($dataSourceConfig);
+
                                         $tableGateway = new TableGateway(
-                                            $tableGatewayConfig,
+                                            $tableGatewayConfig['table_name'],
                                             $dataAdapter
                                         );
+
                                         $tableGatewayCollection->offsetSet(
-                                            $tableGatewayConfig,
+                                            $tableGatewayConfig['data_source'],
                                             $tableGateway
                                         );
+                                        break;
                                     }
-                                    break;
                                 }
                             }
                             break;
@@ -74,13 +75,7 @@ class RouteDataMiddleware implements Middleware
             }
         }
 
-var_dump($siteConfig);die();
-var_dump($this->tableGatewayService);die();
-//var_dump($routeName);die();
-
-        $routeContext = RouteContext::fromRequest($request);
-        $route = $routeContext->getRoute();
-        $request = $request->withAttribute(self::ATTR_NAME, $route);
+        $request = $request->withAttribute(self::ATTR_NAME, $tableGatewayCollection);
 
         return $handler->handle($request);
     }

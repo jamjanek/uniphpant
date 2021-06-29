@@ -15,7 +15,6 @@ use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Slim\Views\PhpRenderer;
 
-
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
         LoggerInterface::class => function (ContainerInterface $c) {
@@ -41,8 +40,13 @@ return function (ContainerBuilder $containerBuilder) {
         JsonInterface::class => function (ContainerInterface $c) {
             return new JsonReader();
         },
-        TableGatewayService::class => function(ContainerInterface $c) {
-
-        }
+//        TableGatewayService::class => function(ContainerInterface $c) {
+//            // @POC
+//            //It collects and initializes all table_gateway found in config
+////            $settings = $c->get('settings');
+////            $tableGatewaySettings = $settings[TableGatewaySpecEntity::ALIAS];
+//            $tableGatewayCollection = new ArrayObject();
+//            return new TableGatewayService($tableGatewayCollection);
+//        }
     ]);
 };

@@ -14,9 +14,10 @@ class TableGatewayService
 {
     protected $tableGatewayCollection;
 
-    public function __construct(ArrayObject $tableGatewayCollection)
+//    public function __construct(ArrayObject $tableGatewayCollection)
+    public function __construct()
     {
-        $this->tableGatewayCollection = $tableGatewayCollection;
+//        $this->tableGatewayCollection = $tableGatewayCollection;
     }
 
     public function getTableGateway(string $name): TableGateway
