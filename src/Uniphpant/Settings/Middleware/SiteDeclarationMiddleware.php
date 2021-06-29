@@ -39,9 +39,9 @@ class SiteDeclarationMiddleware implements Middleware
         $currentHost = $request->getAttribute(CurrentHostMiddleware::ATTR_NAME);
 
         $declarationsPath = sprintf(
-            "%s/../../../../%s/%s",
+            "%s/../../../../%s%s",
             __DIR__,
-            $_ENV['SITES_DIRPATH'],
+            ($_ENV['SITES_DIRPATH'])??'sites/',
             $appSettings[self::INDEX]['glob_paths']
         );
         $cachePath = sprintf(

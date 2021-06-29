@@ -39,17 +39,23 @@ class SiteIdMiddleware implements Middleware
     public function process(Request $request, RequestHandler $handler): Response
     {
         if (php_sapi_name() !== 'cli') {
-            $siteDeclaration = $request->getAttribute(SiteDeclarationMiddleware::ATTR_NAME);
 
-            if(array_key_exists('site-id',$siteDeclaration)) {
-                $this->logger->info(self::ATTR_NAME . " is set to " . $siteDeclaration['site-id']);
-                // finally set the Requests Attribute
-                $request = $request->withAttribute(self::ATTR_NAME, $siteDeclaration['site-id']);
+            if(isset($_ENV['SITE_ID'])) {
+                $this->logger->info(self::ATTR_NAME . " is set to " . $_ENV['SITE_ID'] . " from ENV.");
+                $request = $request->withAttribute(self::ATTR_NAME, $_ENV['SITE_ID']);
             } else {
-                $this->logger->debug("Can not determine SiteId.");
+                $siteDeclaration = $request->getAttribute(SiteDeclarationMiddleware::ATTR_NAME);
 
-                throw new HttpNotFoundException($request, "SiteId not found.");
+                if(array_key_exists('site-id',$siteDeclaration)) {
+                    $this->logger->info(self::ATTR_NAME . " is set to " . $siteDeclaration['site-id']);
+                    $request = $request->withAttribute(self::ATTR_NAME, $siteDeclaration['site-id']);
+                } else {
+                    $this->logger->debug("Can not determine SiteId.");
+
+                    throw new HttpNotFoundException($request, "SiteId not found.");
+                }
             }
+
         } else {
             $siteId = (new ArgvInput())->getParameterOption(['--site', '-s'], 'default');
             $request = $request->withAttribute(self::ATTR_NAME, $siteId);

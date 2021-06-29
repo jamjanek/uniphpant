@@ -21,23 +21,27 @@ return function (ContainerBuilder $containerBuilder) {
                 'app' => [
                     'declaration' => [
                         'glob_paths' => 'site-*.{json,yaml,php}',
-                        'cache_enabled' => $_ENV['APP_CACHE_ENABLED'],
+                        'cache_enabled' => (isset($_ENV['APP_CACHE_ENABLED']))?$_ENV['APP_CACHE_ENABLED']:false,
                         'cache_perm' => 665,
                         'cache_dir' => 'var/cache/',
                         'cache_key' => 'site_declaration_cache',
                     ]
                 ],
                 'spa' => [
+                    "default" => [
+                        "site_id" => "default",
+                        "dir_path" => "default"
+                    ],
                     'settings' => [
                         'glob_paths' => '/site.{json,yaml,php}',
-                        'cache_enabled' => $_ENV['SITE_CACHE_ENABLED'],
+                        'cache_enabled' => (isset($_ENV['SITE_CACHE_ENABLED']))?$_ENV['SITE_CACHE_ENABLED']:false,
                         'cache_perm' => 665,
                         'cache_dir' => 'var/cache/',
                         'cache_key' => 'site_settings_cache',
                     ],
                     'config' => [
                         'glob_paths' => 'config/*.{json,yaml,php}',
-                        'cache_enabled' => $_ENV['SITE_CACHE_ENABLED'],
+                        'cache_enabled' => (isset($_ENV['SITE_CACHE_ENABLED']))?$_ENV['SITE_CACHE_ENABLED']:false,
                         'cache_perm' => 665,
                         'cache_dir' => 'var/cache/',
                         'cache_key' => 'site_config_cache',

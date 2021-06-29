@@ -11,6 +11,18 @@
 
 ## #TODO:
 * Start to use `.env` files.
+##.env files
+The .env files might be found in two locations. One is in ./ and another might be found in ./sites/*/
+
+###./.env file:
+* ***APP_ENV**: DEVELOPMENT*
+* ***APP_CACHE_ENABLED**: 0*
+* ***SITES_DIRPATH**: "sites/"*
+* ***CACHE_DIRPATH**: "var/cache/"*
+
+###./sites/*/.env file:
+* ***SITE_CACHE_ENABLED**: 0* - determines if sites `config` and `settings` should be cached.
+* ***SITE_ID**: "default"* - If this is set, then it cannot be overwritten in site configs.
 
 ##Middleware##
 Middleware classes are declared at `./app/spa/middleware.php` and it uses LIFO method.

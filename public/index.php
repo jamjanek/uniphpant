@@ -12,10 +12,10 @@ use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
 use Symfony\Component\Dotenv\Dotenv;
 
-if( ! isset($dotenv)) {
+if(file_exists(__DIR__.'/../.env')) {
     $dotenv = new Dotenv();
+    $dotenv->load(__DIR__.'/../.env');
 }
-$dotenv->load(__DIR__.'/../.env');
 
 // Instantiate PHP-DI ContainerBuilder
 $containerBuilder = new ContainerBuilder();

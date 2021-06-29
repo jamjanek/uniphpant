@@ -22,7 +22,9 @@ apt-get install -y php7.4-sqlite php-xml php-bcmath php-bz2 php-cli php-curl php
 
 apt-get install -y libapache2-mod-php
 
-sudo apt-get install -y php-xdebug
+apt-get install -y phpunit
+
+apt-get install -y php-xdebug
 
 echo "\n[xdebug]" >> /etc/php/7.4/mods-available/xdebug.ini
 echo "xdebug.default_enable=1" >> /etc/php/7.4/mods-available/xdebug.ini
@@ -82,6 +84,10 @@ fi
 
 # install SQL schema
 sh ./dist/install/install_content_sqlite3.sh default
+
+# Copy .env files
+cp /var/www/.env.dist /var/www/.env
+cp /var/www/sites/default/.env.dist /var/www/sites/default/.env
 
 cd ~
 

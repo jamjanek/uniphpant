@@ -65,7 +65,11 @@ class SiteSettingsMiddleware implements Middleware
         $mergedConfig = $aggregator->getMergedConfig();
         if(array_key_exists('sites',$mergedConfig)) {
             foreach($mergedConfig['sites'] as $siteSettings) {
-                if(strtolower($siteSettings['site-id'])===strtolower($siteId)) {
+                if(isset($_ENV['SITE_ID'])&&strtolower($_ENV['SITE_ID'])===strtolower($siteId)) {
+                    $request = $request->withAttribute(self::ATTR_NAME, $siteSettings[self::TYPE]['settings']);
+                    $this->logger->info(self::ATTR_NAME . " is set.");
+                    break;
+                } elseif(array_key_exists('site-id',$siteSettings)&&strtolower($siteSettings['site-id'])===strtolower($siteId)) {
                     $request = $request->withAttribute(self::ATTR_NAME, $siteSettings[self::TYPE]['settings']);
                     $this->logger->info(self::ATTR_NAME . " is set.");
                     break;

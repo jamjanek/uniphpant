@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="spa" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request" server_name="spa" url="http://127.0.0.1:8089">
+    <method v="2" />
+  </configuration>
+</component>

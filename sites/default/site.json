@@ -1,7 +1,6 @@
 {
   "sites": {
     "default": {
-      "site-id": "default",
       "spa": {
         "settings": {
           "cache_enabled":true
