@@ -12,6 +12,7 @@ use App\Uniphpant\Settings\Middleware\SPASettingsMiddleware;
 use App\Uniphpant\Site\Middleware\SiteIdMiddleware;
 use App\Uniphpant\Config\Middleware\SiteConfigMiddleware;
 use Slim\App;
+use App\Uniphpant\Route\Middleware\RouteDataMiddleware;
 
 return function (App $app) {
     $app->add(SessionMiddleware::class);
@@ -25,7 +26,7 @@ return function (App $app) {
     // $app->add(\App\Site\Middleware\ReadSiteContentMiddleware::class);
     // $app->add(\App\Site\Middleware\ReadSiteContentStructureMiddleware::class);
 
-    // $app->add(\App\Uniphant\Route\Middleware\RouteDataMiddleware::class);
+    $app->add(RouteDataMiddleware::class);
 
     $app->add(SiteConfigMiddleware::class);
     $app->add(FetchRouteMiddleware::class);

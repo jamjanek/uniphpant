@@ -4,6 +4,7 @@ declare(strict_types=1);
 use App\Uniphpant\Settings\Reader\Json as JsonReader;
 use App\Uniphpant\Settings\Reader\JsonInterface;
 use App\Uniphpant\Settings\SettingsInterface;
+use App\Uniphpant\TableGateway\Service\TableGatewayService;
 use App\Uniphpant\Uri\Uri;
 use App\Uniphpant\Uri\UriInterface;
 use DI\ContainerBuilder;
@@ -13,6 +14,7 @@ use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Slim\Views\PhpRenderer;
+
 
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
@@ -39,5 +41,8 @@ return function (ContainerBuilder $containerBuilder) {
         JsonInterface::class => function (ContainerInterface $c) {
             return new JsonReader();
         },
+        TableGatewayService::class => function(ContainerInterface $c) {
+
+        }
     ]);
 };

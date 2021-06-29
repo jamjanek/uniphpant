@@ -35,7 +35,6 @@ class SiteDeclarationMiddleware implements Middleware
 
     public function process(Request $request, RequestHandler $handler): Response
     {
-    	$spaSettings = $request->getAttribute(SPASettingsMiddleware::ATTR_NAME);
     	$appSettings = $request->getAttribute(AppSettingsMiddleware::ATTR_NAME);
         $currentHost = $request->getAttribute(CurrentHostMiddleware::ATTR_NAME);
 

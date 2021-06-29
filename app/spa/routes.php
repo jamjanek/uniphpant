@@ -16,6 +16,8 @@ return function (App $app) {
 
     $app->group('/', function (Group $group) {
         $group->get('', RequestAction::class)
-            ->setName("page-request");
+            ->setName("request");
+//        $group->post('', ProcessAction::class)->setName('process');
+//        $group->get('{uid}', ResponseAction::class)->setName('response');
     });
 };

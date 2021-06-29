@@ -26,6 +26,7 @@
         "ext-xml": "*",
         "laminas/laminas-config": "^3.5",
         "laminas/laminas-config-aggregator": "^1.5",
+        "laminas/laminas-db": "^2.12",
         "laminas/laminas-uri": "^2.8",
         "monolog/monolog": "^2.2",
         "php-di/php-di": "^6.3",
