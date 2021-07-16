@@ -1,0 +1,45 @@
+{
+  "spa-site-filesystem": {
+    "site_id": "spa-site-filesystem",
+    "data": {
+      "router" : {
+        "router-001": {
+          "uid": "router-001",
+          "route_uid": "route-001",
+          "site_uid": "spa-site-filesystem",
+          "method": "get",
+          "attributes": {},
+          "status": 1,
+          "comm": "Display Homepage."
+        },
+        "router-002": {
+          "uid": "router-002",
+          "route_uid": "route-002",
+          "site_uid": "spa-site-filesystem",
+          "method": "get",
+          "attributes": {},
+          "status": 1,
+          "comm": "Display form."
+        },
+        "router-003": {
+          "uid": "router-003",
+          "route_uid": "route-003",
+          "site_uid": "spa-site-filesystem",
+          "method": "get",
+          "attributes": {},
+          "status": 1,
+          "comm": "Display processed Page."
+        },
+        "router-004": {
+          "uid": "router-004",
+          "route_uid": "route-004",
+          "site_uid": "spa-site-filesystem",
+          "method": "get",
+          "attributes": {},
+          "status": 1,
+          "comm": "Display processed Image."
+        }
+      }
+    }
+  }
+}

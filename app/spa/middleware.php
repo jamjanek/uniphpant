@@ -13,6 +13,7 @@ use App\Uniphpant\Settings\Middleware\SiteSettingsMiddleware;
 use App\Uniphpant\Site\Middleware\SiteIdMiddleware;
 use App\Uniphpant\TableGateway\Middleware\TableGatewayMiddleware;
 use Slim\App;
+use App\Uniphpant\Route\Middleware\RouteDataMiddleware;
 
 return function (App $app) {
     $app->add(SessionMiddleware::class);
@@ -34,10 +35,8 @@ return function (App $app) {
 //    $app->add(SeoDataMiddleware::class);
 //    $app->add(TemplateDataMiddleware::class);
 //    $app->add(PageDataMiddleware::class);
-//    $app->add(RouteDataMiddleware::class);
+    $app->add(RouteDataMiddleware::class);
     $app->add(TableGatewayMiddleware::class);
-//    $app->add(RouteConfigMiddleware::class);
-
     $app->add(SiteConfigMiddleware::class);
     $app->add(FetchRouteMiddleware::class);
     $app->add(SiteSettingsMiddleware::class);

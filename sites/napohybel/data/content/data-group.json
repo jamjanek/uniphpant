@@ -1,0 +1,78 @@
+{
+  "spa-site-filesystem": {
+    "site_id": "spa-site-filesystem",
+    "data": {
+      "group": {
+        "group-001": {
+          "uid": "group-001",
+          "type": "block",
+          "comm": "XDD Logo.",
+          "blocks": {
+            "block-001": {
+              "uid": "block-001",
+              "content": {
+                "content-001": {
+                  "uid": "content-001"
+                },
+                "content-002": {
+                  "uid": "content-002"
+                },
+                "content-003": {
+                  "uid": "content-003"
+                }
+              }
+            }
+          }
+        },
+        "group-009": {
+          "uid": "group-009",
+          "type": "area",
+          "comm": "Footer Scripts Area.",
+          "blocks": {
+            "block-9001": {
+              "uid": "block-9001",
+              "content": {
+                "content-9001": {
+                  "uid": "content-9001"
+                },
+                "content-9002": {
+                  "uid": "content-9002"
+                },
+                "content-9003": {
+                  "uid": "content-9003"
+                }
+              }
+            }
+          }
+        },
+        "group-010": {
+          "uid": "group-010",
+          "comm": "Head Metatags.",
+          "content": {
+            "seo-101": {
+              "uid": "seo-101"
+            },
+            "seo-102": {
+              "uid": "seo-102"
+            },
+            "seo-103": {
+              "uid": "seo-103"
+            },
+            "seo-104": {
+              "uid": "seo-104"
+            },
+            "seo-105": {
+              "uid": "seo-105"
+            },
+            "seo-106": {
+              "uid": "seo-106"
+            },
+            "seo-107": {
+              "uid": "seo-107"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ return [
                 'content' => [
                     'name' => 'content',
                     'table_name' => 'content',
-                    "adapter" => "content_db",
+                    "data_source" => "content_db",
                 ]
             ], // table_gateway
             'data_source' => [

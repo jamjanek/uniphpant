@@ -103,28 +103,27 @@ php -v
 
 
 ######
-
+echo "\n"
 echo "** Visit http://localhost:8089 ot http://uniphpant.local.vm in your browser for to view the application **"
 SCRIPT
 
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-    config.vm.define "config" do |config|
-        config.vm.box = "ubuntu/focal64"
-        config.vm.network "forwarded_port", guest: 80, host: 8089
-        config.vm.network "forwarded_port", guest: 22, host: 8029
-        config.vm.network :private_network, :auto_network => true
-        config.vm.synced_folder './', '/var/www/', id:"app-root",owner:"vagrant",group:"www-data",mount_options:["dmode=777,fmode=666"]
-        config.vm.synced_folder './sites', '/var/www/sites', id:"sites",owner:"vagrant",group:"www-data",mount_options:["dmode=777,fmode=666"]
-        config.vm.provision 'shell', inline: @script
-        config.vm.hostname = 'uniphpant.local.vm'
+    config.vm.define "spa", primary: true do |spa|
+        spa.vm.box = "ubuntu/focal64"
+        spa.vm.network "forwarded_port", guest: 80, host: 8089
+        spa.vm.network "forwarded_port", guest: 22, host: 8029
+        spa.vm.network :private_network, :auto_network => true
+        spa.vm.synced_folder './', '/var/www/', id:"app-root",owner:"vagrant",group:"www-data",mount_options:["dmode=777,fmode=666"]
+        spa.vm.synced_folder './sites', '/var/www/sites', id:"sites",owner:"vagrant",group:"www-data",mount_options:["dmode=777,fmode=666"]
+        spa.vm.provision 'shell', inline: @script
+        spa.vm.hostname = 'uniphpant.local.vm'
 
-        config.vm.provider "virtualbox" do |vb|
+        spa.vm.provider "virtualbox" do |vb|
             vb.customize ["modifyvm", :id, "--memory", "1024"]
-            vb.customize ["modifyvm", :id, "--name", "spa-standalone"]
+            vb.customize ["modifyvm", :id, "--name", "uniphpant-spa-default"]
         end
     end
-
 end
 

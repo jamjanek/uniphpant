@@ -1,0 +1,596 @@
+{
+  "napohybel": {
+    "site_id": "napohybel",
+    "data": {
+      "block" : {
+        "block-001": {
+          "uid": "block-001",
+          "attributes": {
+            "class": "masthead-brand"
+          },
+          "parameters": {
+            "html_tag":"h2"
+          },
+          "status": 1
+        },
+        "block-100": {
+          "uid": "block-100",
+          "attributes": {
+            "class":"fixed-top"
+          },
+          "parameters": {
+            "html_tag":"header"
+          },
+          "status": 1,
+          "order": 1
+        },
+        "block-101": {
+          "uid": "block-101",
+          "attributes": {
+            "class":"fluid-container"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "status": 1,
+          "order": 1
+        },
+        "block-102": {
+          "uid": "block-102",
+          "attributes": {
+            "class":"row navbar navbar-expand-lg navbar-dark bg-transparent-75"
+          },
+          "parameters": {
+            "html_tag":"nav"
+          },
+          "status": 1,
+          "order": 1
+        },
+        "block-103": {
+          "uid": "block-103",
+          "attributes": {
+            "class":"m-auto col-12 col-md-8"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "status": 1,
+          "order": 1
+        },
+        "block-104": {
+          "uid": "block-104",
+          "content": "XDD",
+          "attributes": {
+            "class":"navbar-brand",
+            "href": "%base_url%"
+          },
+          "parameters": {
+            "html_tag":"a"
+          },
+          "status": 1,
+          "order": 1
+        },
+        "block-200": {
+          "uid": "block-200",
+          "attributes": {
+            "class":"row"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "header wrapper"
+        },
+        "block-203": {
+          "uid": "block-203",
+          "attributes": {
+            "class":"row"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "main row wrapper"
+        },
+        "block-204": {
+          "uid": "block-204",
+          "attributes": {
+            "class":"col-12"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "main col wrapper"
+        },
+        "block-205": {
+          "uid": "block-205",
+          "attributes": {
+            "class":"nav nav-tabs",
+            "id":"myTab",
+            "role": "tablist"
+          },
+          "parameters": {
+            "html_tag":"ul"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "forms tablist"
+        },
+        "block-206": {
+          "uid": "block-206",
+          "attributes": {
+            "class":"nav-item"
+          },
+          "parameters": {
+            "html_tag":"li"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "nav item li"
+        },
+        "block-207": {
+          "uid": "block-207",
+          "content": null,
+          "attributes": {
+            "class":"tab-content",
+            "id":"myTabContent"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "header"
+        },
+        "block-2210": {
+          "uid": "block-2210",
+          "content": null,
+          "attributes": {
+            "id":"version-extended",
+            "class":"tab-pane fade show active",
+            "role":"tabpanel",
+            "aria-labelledby":"version-extended-tab"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2211": {
+          "uid": "block-2211",
+          "content": null,
+          "attributes": {
+            "action":"/",
+            "method":"POST",
+            "enctype":"multipart/form-data"
+          },
+          "parameters": {
+            "html_tag":"form"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2212": {
+          "uid": "block-2212",
+          "content": null,
+          "attributes": {
+            "class":"row"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2213": {
+          "uid": "block-2213",
+          "content": null,
+          "attributes": {
+            "class":"col-12"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2220": {
+          "uid": "block-2220",
+          "content": null,
+          "attributes": {
+            "class":"row"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2221": {
+          "uid": "block-2221",
+          "content": null,
+          "attributes": {
+            "class":"col-12"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2222": {
+          "uid": "block-2222",
+          "content": null,
+          "attributes": {
+            "id":"version-extended-input-group",
+            "class":"carousel-indicators list-inline text-left justify-left mx-0 mt-3 mb-3"
+          },
+          "parameters": {
+            "html_tag":"ul"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2223": {
+          "uid": "block-2223",
+          "content": null,
+          "attributes": {
+            "class":"active"
+          },
+          "parameters": {
+            "html_tag":"li"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2224": {
+          "uid": "block-2224",
+          "content": null,
+          "attributes": {
+            "id":"carousel-selector-1",
+            "class":"mb-0 pb-2",
+            "for":"img-extended-character-1",
+            "data-slide-to":"0",
+            "data-target":"#myCarousel",
+            "onclick":"javascript:applicationForm.htmlInput.selectRadioByLabel(this,'version-extended-input-group');"
+          },
+          "parameters": {
+            "html_tag":"label"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2225": {
+          "uid": "block-2225",
+          "content": null,
+          "attributes": {},
+          "parameters": {
+            "html_tag":"li"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2226": {
+          "uid": "block-2226",
+          "content": null,
+          "attributes": {
+            "id": "carousel-selector-2",
+            "class": "mb-0 pb-2",
+            "for": "img-extended-character-2",
+            "data-slide-to": "1",
+            "data-target": "#myCarousel",
+            "onclick": "javascript:applicationForm.htmlInput.selectRadioByLabel(this,'version-extended-input-group');"
+          },
+          "parameters": {
+            "html_tag":"label"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2110": {
+          "uid": "block-2110",
+          "content": null,
+          "attributes": {
+            "class":"row"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2111": {
+          "uid": "block-2111",
+          "content": null,
+          "attributes": {
+            "class":"col-12"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2112": {
+          "uid": "block-2112",
+          "content": null,
+          "attributes": {
+            "id":"myCarousel",
+            "class":"carousel slide",
+            "data-interval":"false"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2113": {
+          "uid": "block-2113",
+          "content": null,
+          "attributes": {
+            "class":"carousel-inner"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2114": {
+          "uid": "block-2114",
+          "content": null,
+          "attributes": {
+            "class":"active item carousel-item",
+            "data-slide-number":"0"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2115": {
+          "uid": "block-2115",
+          "content": null,
+          "attributes": {
+            "class":"item carousel-item",
+            "data-slide-number":"1"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2230": {
+          "uid": "block-2230",
+          "content": null,
+          "attributes": {
+            "class":"row justify-content-center"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2231": {
+          "uid": "block-2231",
+          "content": null,
+          "attributes": {
+            "class":"col-12"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2232": {
+          "uid": "block-2232",
+          "content": null,
+          "attributes": {
+            "class":"col-12"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2233": {
+          "uid": "block-2233",
+          "content": null,
+          "attributes": {
+            "class":"input-group mb-2"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2234": {
+          "uid": "block-2234",
+          "content": null,
+          "attributes": {
+            "class":"input-group-append"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2240": {
+          "uid": "block-2240",
+          "content": null,
+          "attributes": {
+            "class":"row"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-2241": {
+          "uid": "block-2241",
+          "content": null,
+          "attributes": {
+            "class":"col-12"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "block-3001": {
+          "uid": "block-3001",
+          "content": null,
+          "attributes": {
+            "class":"col-12"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Image wrapper."
+        },
+        "block-3002": {
+          "uid": "block-3002",
+          "content": null,
+          "attributes": {
+            "class":"col-12 wrapper-spinner"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Spinner wrapper."
+        },
+        "block-4001": {
+          "uid": "block-4001",
+          "content": null,
+          "attributes": {
+            "class":"footer mt-3"
+          },
+          "parameters": {
+            "html_tag":"footer"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Footer wrapper."
+        },
+        "block-4002": {
+          "uid": "block-4002",
+          "content": null,
+          "attributes": {
+            "class":"container text-center"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Footer wrapper."
+        },
+        "block-5001": {
+          "uid": "block-5001",
+          "content": null,
+          "attributes": {
+            "class":"hidden d-none"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Footer scripts wrapper."
+        },
+        "block-9001": {
+          "uid": "block-9001",
+          "content": null,
+          "attributes": {
+            "class":"hidden d-none wrapper-js"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Footer scripts wrapper."
+        }
+      }
+    }
+  }
+}

@@ -38,4 +38,19 @@ Middleware listed below is responsible for reading current site settings.
 |**SiteIdMiddleware**         |                                            |site_id         |                     |NA                               |
 |**SiteSettingsMiddleware**   |./sites/\{DP}/site.json               |site_settings   |                     |./sites/\{DP}/var/cache/site.php |
 |**SiteConfigMiddleware**     |./sites/\{DP}/config/*.\{json,yaml,php}|site_config     |                     |                                 |
-|                             |                                            |                |                     |                                 |
+|**TableGatewayMiddleware**   |                                            |                |                     |                                 |
+
+
+### Table Gateway ###
+Table gateways are assembled in **TableGatewayMiddleware**
+dependencies: SiteConfigMiddleware
+takes `table_gateway` and `data_source` index from siteConfig. In `table_gateway` iteration matches single `data_source`, injects the latter to LaminasDbAdapter and then creates TableGateway and adds the result to attribute collection. 
+create `acme.php` in ./sites/default/config ; inside file create array with index `site->config` #TODO
+#TODO describe db migration and seeding. seeding from site level and migration from app level.
+
+table_gateway:
+table gateways maybe taken from requests attribute `table_gateway`.
+
+
+
+#TODO: HydratingResultSet && MyClassTable and https://stackoverflow.com/questions/12757808/zend-framework-2-zend-db-resultset-resultset-toarray-doe-not-return-records/19102697

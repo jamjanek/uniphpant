@@ -1,0 +1,413 @@
+{
+  "napohybel": {
+    "site_id": "napohybel",
+    "structure": {
+      "homepage": {
+        "get": {
+          "comm": "Display Homepage with AjaxForm request.",
+          "tree": {
+            "area": {
+              "area-000": {
+                "uid": "area-000",
+                "comm": "Navigation",
+                "blocks": {
+                  "block-100": {
+                    "uid": "block-100",
+                    "blocks": {
+                      "block-101": {
+                        "uid": "block-101",
+                        "blocks": {
+                          "block-102": {
+                            "uid": "block-102",
+                            "blocks": {
+                              "block-103": {
+                                "uid": "block-103",
+                                "blocks": {
+                                  "block-104": {
+                                    "uid": "block-104"
+                                  }
+                                },
+                                "group": {
+                                  "group-001": {
+                                    "uid": "group-001"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "area-001": {
+                "uid": "area-001",
+                "comm": "Content Area",
+                "blocks": {
+                  "block-203": {
+                    "uid": "block-203",
+                    "comm": "main row wrapper",
+                    "blocks": {
+                      "block-204": {
+                        "uid": "block-204",
+                        "comm": "main col wrapper",
+                        "blocks": {
+                          "block-205": {
+                            "uid": "block-205",
+                            "comm": "forms tablist",
+                            "blocks": {
+                              "block-206": {
+                                "uid": "block-206",
+                                "comm": "nav item"
+                              },
+                              "block-208": {
+                                "uid": "block-208",
+                                "content": {
+                                  "content-211": {
+                                    "uid": "content-211"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "block-207": {
+                            "uid": "block-207"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "area-002": {
+                "uid": "area-002",
+                "blocks": {
+                  "block-4001": {
+                    "uid": "block-4001",
+                    "blocks": {
+                      "block-4002": {
+                        "uid": "block-4002",
+                        "content": {
+                          "content-4001": {
+                            "uid": "content-4001"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "area-003": {
+                "uid": "area-003",
+                "comm": "Footer scripts.",
+                "group": {
+                  "group-009": {
+                    "uid": "group-009"
+                  }
+                }
+              },
+              "area-101": {
+                "uid": "area-101",
+                "comm": "Seo meta tags for title, description and keywords",
+                "group": {
+                  "group-010": {
+                    "uid": "group-010"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tree": {
+            "area": {
+              "area-000": {
+                "uid": "area-000",
+                "comm": "Navigation",
+                "blocks": {
+                  "block-100": {
+                    "uid": "block-100",
+                    "blocks": {
+                      "block-101": {
+                        "uid": "block-101",
+                        "blocks": {
+                          "block-102": {
+                            "uid": "block-102",
+                            "blocks": {
+                              "block-103": {
+                                "uid": "block-103",
+                                "blocks": {
+                                  "block-104": {
+                                    "uid": "block-104"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "area-101": {
+                "uid": "area-101",
+                "comm": "Seo meta tags for title, description and keywords",
+                "group": {
+                  "group-010": {
+                    "uid": "group-010"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "form": {
+        "get": {
+          "tree": {
+            "area": {
+              "area-001": {
+                "uid": "area-001",
+                "blocks": {
+                  "block-2210": {
+                    "uid": "block-2210",
+                    "blocks": {
+                      "block-2211": {
+                        "uid": "block-2211",
+                        "blocks": {
+                          "block-2212": {
+                            "uid": "block-2212",
+                            "blocks": {
+                              "block-2213": {
+                                "uid": "block-2213",
+                                "content": {
+                                  "content-2210": {
+                                    "uid": "content-2210"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "block-2110": {
+                            "uid": "block-2110",
+                            "blocks": {
+                              "block-2111": {
+                                "uid": "block-2111",
+                                "blocks": {
+                                  "block-2112": {
+                                    "uid": "block-2112",
+                                    "blocks": {
+                                      "block-2113": {
+                                        "uid": "block-2113",
+                                        "blocks": {
+                                          "block-2114": {
+                                            "uid": "block-2114",
+                                            "content": {
+                                              "content-2114": {
+                                                "uid": "content-2114"
+                                              }
+                                            }
+                                          },
+                                          "block-2115": {
+                                            "uid": "block-2115",
+                                            "content": {
+                                              "content-2115": {
+                                                "uid": "content-2115"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "block-2220": {
+                            "uid": "block-2220",
+                            "blocks": {
+                              "block-2221": {
+                                "uid": "block-2221",
+                                "blocks": {
+                                  "block-2222": {
+                                    "uid": "block-2222",
+                                    "blocks": {
+                                      "block-2223": {
+                                        "uid": "block-2223",
+                                        "blocks": {
+                                          "block-2224": {
+                                            "uid": "block-2224",
+                                            "content": {
+                                              "content-2224": {
+                                                "uid": "content-2224"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "content": {
+                                          "content-2223": {
+                                            "uid": "content-2223"
+                                          }
+                                        }
+                                      },
+                                      "block-2225": {
+                                        "uid": "block-2225",
+                                        "blocks": {
+                                          "block-2226": {
+                                            "uid": "block-2226",
+                                            "content": {
+                                              "content-2226": {
+                                                "uid": "content-2226"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "content": {
+                                          "content-2223": {
+                                            "uid": "content-2223"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "block-2230": {
+                            "uid": "block-2230",
+                            "blocks": {
+                              "block-2231": {
+                                "uid": "block-2231",
+                                "content": {
+                                  "content-2231": {
+                                    "uid": "content-2231"
+                                  },
+                                  "content-2232": {
+                                    "uid": "content-2232"
+                                  }
+                                }
+                              },
+                              "block-2232": {
+                                "uid": "block-2232",
+                                "blocks": {
+                                  "block-2233": {
+                                    "uid": "block-2233",
+                                    "content": {
+                                      "content-2233": {
+                                        "uid": "content-2233"
+                                      }
+                                    },
+                                    "blocks": {
+                                      "block-2234": {
+                                        "uid": "block-2234",
+                                        "content": {
+                                          "content-2234": {
+                                            "uid": "content-2234"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "block-2240": {
+                            "uid": "block-2240",
+                            "blocks": {
+                              "block-2241": {
+                                "uid": "block-2241",
+                                "content": {
+                                  "content-2241": {
+                                    "uid": "content-2241"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "get": {
+          "comm": "Display Image with Ajax.",
+          "tree": {
+            "area": {
+              "area-000": {
+                "uid": "area-000",
+                "comm": "Navigation",
+                "blocks": {
+                  "block-100": {
+                    "uid": "block-100",
+                    "blocks": {
+                      "block-101": {
+                        "uid": "block-101",
+                        "blocks": {
+                          "block-102": {
+                            "uid": "block-102",
+                            "blocks": {
+                              "block-103": {
+                                "uid": "block-103",
+                                "blocks": {
+                                  "block-104": {
+                                    "uid": "block-104"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "area-001": {
+                "uid": "area-001",
+                "blocks": {
+                  "blocks": {
+                    "block-3001": {
+                      "uid": "block-3001",
+                      "content": {
+                        "content-3001": {
+                          "uid": "content-3001"
+                        }
+                      }
+                    },
+                    "block-3002": {
+                      "uid": "block-3002",
+                      "content": {
+                        "content-3002": {
+                          "uid": "content-3002"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "area-002": {
+                "uid": "area-002",
+                "blocks": {
+                  "block-4001": {
+                    "uid": "block-4001"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

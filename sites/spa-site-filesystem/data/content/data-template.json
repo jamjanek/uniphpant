@@ -1,0 +1,32 @@
+{
+  "spa-site-filesystem": {
+    "site_id": "spa-site-filesystem",
+    "data": {
+      "template" : {
+        "template-001": {
+          "uid": "template-001",
+          "type": "filesystem",
+          "location": "page-view",
+          "machine_name": "page-default",
+          "methods": ["GET"],
+          "i18n": "pl_pl",
+          "status": 1,
+          "order": 1,
+          "comm": "homepage"
+        },
+        "template-002": {
+          "uid": "template-002",
+          "route_uid": "route-003",
+          "type": "filesystem",
+          "location": "form-view",
+          "machine_name": "form-default",
+          "label": "GET",
+          "i18n": "pl_pl",
+          "status": 1,
+          "order": 1,
+          "comm": "Display Form."
+        }
+      }
+    }
+  }
+}

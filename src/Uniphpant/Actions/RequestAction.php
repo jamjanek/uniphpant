@@ -24,12 +24,64 @@ class RequestAction extends Action
     protected function action(): Response
     {
         $templatesPath = __DIR__.'/../../../templates';
+
+        $contentData = null;
+        $contentStructure = null;
+
+        $currentRouteData = $this->request->getAttribute('site_route_data');
+        #TODO: PageModel
+        $currentPage = $this->request->getAttribute('table_gateway')
+            ->offsetGet('page')
+            ->select(['route_uid'=>$currentRouteData['uid'],'status'=>1])
+            ->current();
+        #TODO: TemplateModel
+        $currentTemplate = $this->request->getAttribute('table_gateway')
+            ->offsetGet('template')
+            ->select(['route_uid'=>$currentRouteData['uid'],'status'=>1])
+            ->current();
+        #TODO: AreaModel
+        $areaCollection = $this->request->getAttribute('table_gateway')
+            ->offsetGet('area')
+            ->select(['template_uid'=>$currentTemplate['uid'],'status'=>1]);
+        #TODO: AreaBlockModel
+        $areaBlockGateway = $this->request->getAttribute('table_gateway')
+            ->offsetGet('area_block');
+        #TODO: blockContentModel
+        $blockContentGateway = $this->request->getAttribute('table_gateway')
+            ->offsetGet('block_content');
+
+        if($areaCollection->count()>0) {
+            // Iterate areas and find connections with blocks.
+            foreach($areaCollection as $areaRowSet) {
+
+                $blockCollection = $areaBlockGateway->select(['area_uid'=>$areaRowSet['uid']]);
+                // if there are blocks connected then find content by block
+                if($blockCollection->count()>0) {
+                    foreach($blockCollection as $blockRowSet) {
+                        $contentCollection = $blockContentGateway->select(['block_uid'=>$blockRowSet['block_uid']]);
+                        if($contentCollection->count()>0) {
+                            foreach($contentCollection as $contentRowSet) {
+                                var_dump($contentRowSet);
+                            }
+                        }
+                        var_dump($blockRowSet);
+                        echo $blockRowSet->offsetGet('area_uid');
+                    }
+                }
+            }
+        }
+
+
+        die();
+
         $this->renderer->setTemplatePath($templatesPath);
         return $this->renderer->render(
             $this->response,
             "default.php",
             [
-                'current_route' => $this->request->getAttribute('table_gateway')->offsetGet('route_db')->select()->current(),
+                'current_route' => $currentRouteData,
+                'current_page' => $currentPage,
+                'current_template' => $currentTemplate,
                 'display_text'=>'Hello World!'
             ]
         );

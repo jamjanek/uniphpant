@@ -41,7 +41,7 @@ class SiteIdMiddleware implements Middleware
         if (php_sapi_name() !== 'cli') {
 
             if(isset($_ENV['SITE_ID'])) {
-                $this->logger->info(self::ATTR_NAME . " is set to " . $_ENV['SITE_ID'] . " from ENV.");
+                $this->logger->info(self::ATTR_NAME . " is set to " . $_ENV['SITE_ID'] . " from \$_ENV.");
                 $request = $request->withAttribute(self::ATTR_NAME, $_ENV['SITE_ID']);
             } else {
                 $siteDeclaration = $request->getAttribute(SiteDeclarationMiddleware::ATTR_NAME);

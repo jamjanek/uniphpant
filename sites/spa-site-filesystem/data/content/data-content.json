@@ -1,0 +1,555 @@
+{
+  "spa-site-filesystem": {
+    "site_id": "spa-site-filesystem",
+    "data": {
+      "content" : {
+        "content-001": {
+          "uid": "content-001",
+          "template_uid": null,
+          "type": "text",
+          "content": "X",
+          "attributes": {
+            "class":"d-inline-block border border-light m-0 px-2"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "X"
+        },
+        "content-002": {
+          "uid": "content-002",
+          "template_uid": null,
+          "type": "text",
+          "content": "D",
+          "attributes": {
+            "class":"d-inline-block border border-light m-0 px-2"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "D"
+        },
+        "content-003": {
+          "uid": "content-003",
+          "template_uid": null,
+          "type": "text",
+          "content": "D",
+          "attributes": {
+            "class":"d-inline-block border border-light m-0 px-2"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "D"
+        },
+        "content-200": {
+          "uid": "content-200",
+          "template_uid": null,
+          "type": "text",
+          "content": "Demo Website",
+          "attributes": {
+            "class":"cover-heading pb-3 mt-3"
+          },
+          "parameters": {
+            "html_tag":"h1"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "header wrapper"
+        },
+        "content-201": {
+          "uid": "content-201",
+          "template_uid": null,
+          "type": "text",
+          "content": null,
+          "attributes": {
+            "class":"fb-like float-right align-bottom",
+            "data-href":"helper::url:homepage",
+            "data-layout":"button_count",
+            "data-action":"like",
+            "data-size":"large",
+            "data-show-faces":"false"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "header wrapper"
+        },
+        "content-210": {
+          "uid": "content-210",
+          "template_uid": null,
+          "type": "text",
+          "content": "Pasek TVP",
+          "attributes": {
+            "class":"nav-link elo",
+            "id":"version-extended-tab",
+            "aria-controls":"version-extended",
+            "aria-selected":"true",
+            "href":"#version-extended",
+            "role":"tab",
+            "data-toggle":"tab",
+            "onClick":"javascript:applicationForm.loadForm('version-extended',this);window.location.hash = 'form:' + this.getAttribute('href').slice(1);"
+          },
+          "parameters": {
+            "html_tag":"a"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "header wrapper"
+        },
+        "content-2210": {
+          "uid": "content-2210",
+          "template_uid": null,
+          "type": "text",
+          "content": "1. Wybierz postać:",
+          "attributes": {
+            "class":"pb-2 pt-2 mt-3 header-1"
+          },
+          "parameters": {
+            "html_tag":"p"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2223": {
+          "uid": "content-2223",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "id":"img-extended-character-1",
+            "type":"radio",
+            "name":"character",
+            "value":"1",
+            "checked":"checked"
+          },
+          "parameters": {
+            "html_tag":"input"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2224": {
+          "uid": "content-2224",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "class":"w-100",
+            "src":"/assets/images/source/source-1_sample.png"
+          },
+          "parameters": {
+            "html_tag":"img"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2225": {
+          "uid": "content-2225",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "id":"img-extended-character-2",
+            "type":"radio",
+            "name":"character",
+            "value":"2"
+          },
+          "parameters": {
+            "html_tag":"input"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2226": {
+          "uid": "content-2226",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "src":"/assets/images/source/source-2_sample.png",
+            "class":"w-100"
+          },
+          "parameters": {
+            "html_tag":"img"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2114": {
+          "uid": "content-2114",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "src":"/assets/images/source/source-1_sample.png",
+            "class":"img-fluid w-100",
+            "data-carousel-indicator-id":"carousel-selector-1"
+          },
+          "parameters": {
+            "html_tag":"img"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2115": {
+          "uid": "content-2115",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "src":"/assets/images/source/source-2_sample.png",
+            "class":"img-fluid w-100",
+            "data-carousel-indicator-id":"carousel-selector-2c"
+          },
+          "parameters": {
+            "html_tag":"img"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2116": {
+          "uid": "content-2116",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "href":"#myCarousel",
+            "class":"carousel-control carousel-control-prev left pt-3",
+            "data-slide":"prev",
+            "onclick":"javascript:applicationForm.btCarousel.setIndicatorAsActive(this);"
+          },
+          "parameters": {
+            "html_tag":"a"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2117": {
+          "uid": "content-2117",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "href":"#myCarousel",
+            "class":"carousel-control carousel-control-next right pt-3",
+            "data-slide":"next",
+            "onclick":"javascript:applicationForm.btCarousel.setIndicatorAsActive(this);"
+          },
+          "parameters": {
+            "html_tag":"a"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2231": {
+          "uid": "content-2231",
+          "template_uid": null,
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "class":"border-top border-top-dotted"
+          },
+          "parameters": {
+            "html_tag":"hr"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2232": {
+          "uid": "content-2232",
+          "template_uid": null,
+          "type": "html",
+          "content": "2. Wpisz treść paska:",
+          "attributes": {
+            "class":"text-white mt-0 mb-3 header-1",
+            "for":"inlineFormInputGroup"
+          },
+          "parameters": {
+            "html_tag":"label"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2233": {
+          "uid": "content-2233",
+          "template_uid": null,
+          "machine_name": "content-2233",
+          "type": "input",
+          "content": "",
+          "attributes": {
+            "class":"form-control form-control-lg",
+            "id":"inlineFormInputGroup",
+            "type":"text",
+            "name":"text_1",
+            "onchange":"limitTxt(this);countChar(this,'count-text_1');",
+            "onkeydown":"limitTxt(this);countChar(this,'count-text_1');",
+            "onkeyup":"limitTxt(this);countChar(this,'count-text_1');"
+          },
+          "parameters": {
+            "html_tag":"input"
+          },
+          "options": {
+            "form": "create"
+          },
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2234": {
+          "uid": "content-2234",
+          "template_uid": null,
+          "type": "html",
+          "content": "48",
+          "attributes": {
+            "class":"input-group-text",
+            "id":"count-text_1",
+            "data-limit":"48"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-2241": {
+          "uid": "content-2241",
+          "template_uid": null,
+          "type": "html",
+          "content": "",
+          "attributes": {
+            "class":"w-100 btn btn-lg btn-success mb-4 mt-4",
+            "type":"submit",
+            "name":"submit",
+            "value":"Generuj"
+          },
+          "parameters": {
+            "html_tag":"input"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-3001": {
+          "uid": "content-3001",
+          "type": "text",
+          "content": "",
+          "attributes": {
+            "class":"img-fluid",
+            "src":"%ajax_url%/image/%uid%"
+          },
+          "parameters": {
+            "html_tag":"img"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "."
+        },
+        "content-3002": {
+          "uid": "content-3002",
+          "type": "html",
+          "content": "",
+          "attributes": {
+            "class":"spinner-border text-light"
+          },
+          "parameters": {
+            "html_tag":"div"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Spinner"
+        },
+        "content-3003": {
+          "uid": "content-3003",
+          "type": "text",
+          "content": "Loading...",
+          "attributes": {
+            "class":"sr-only"
+          },
+          "parameters": {
+            "html_tag":"span"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Screen Reader only."
+        },
+        "content-4001": {
+          "uid": "content-4001",
+          "type": "text",
+          "content": "Strona nie ma związku z TVP, służy do parodiowania ich tępej propagandy.",
+          "attributes": {
+            "class":"text-muted text-center mx-auto"
+          },
+          "parameters": {
+            "html_tag":"span"
+          },
+          "status": 1,
+          "order": 1
+        },
+        "content-5001": {
+          "uid": "content-5001",
+          "type": "helper",
+          "content": null,
+          "attributes": {
+            "id":"ajax-server",
+            "data-host-url":"route::image"
+          },
+          "parameters": {
+            "html_tag":"span",
+            "data-host-url": {
+              "uid": "%item_uid%"
+            }
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Ajax host URL."
+        },
+        "content-5002": {
+          "uid": "content-5002",
+          "type": "html",
+          "content": null,
+          "attributes": {
+            "src":"https://code.jquery.com/jquery-3.3.1.slim.min.js",
+            "type": "text/javascript",
+            "crossorigin": "anonymous"
+          },
+          "parameters": {
+            "html_tag":"script"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "jQuery URL."
+        },
+        "content-5003": {
+          "uid": "content-5003",
+          "type": "html",
+          "content": null,
+          "attributes": {
+            "src":"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",
+            "type": "text/javascript",
+            "crossorigin": "anonymous"
+          },
+          "parameters": {
+            "html_tag":"script"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "PopperJS URL."
+        },
+        "content-5004": {
+          "uid": "content-5004",
+          "type": "html",
+          "content": null,
+          "attributes": {
+            "src":"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",
+            "type": "text/javascript",
+            "crossorigin": "anonymous"
+          },
+          "parameters": {
+            "html_tag":"script"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "PopperJS URL."
+        },
+        "content-9001": {
+          "uid": "content-9001",
+          "type": "html",
+          "content": null,
+          "attributes": {
+            "src":"https://code.jquery.com/jquery-3.3.1.slim.min.js",
+            "type": "text/javascript",
+            "crossorigin": "anonymous"
+          },
+          "parameters": {
+            "html_tag":"script"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "jQuery URL."
+        },
+        "content-9002": {
+          "uid": "content-9002",
+          "type": "html",
+          "content": null,
+          "attributes": {
+            "src":"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",
+            "type": "text/javascript",
+            "crossorigin": "anonymous"
+          },
+          "parameters": {
+            "html_tag":"script"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "PopperJS URL."
+        },
+        "content-9003": {
+          "uid": "content-9003",
+          "type": "html",
+          "content": null,
+          "attributes": {
+            "src":"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js",
+            "type": "text/javascript",
+            "crossorigin": "anonymous"
+          },
+          "parameters": {
+            "html_tag":"script"
+          },
+          "options": {},
+          "status": 1,
+          "order": 1,
+          "comm": "Bootstrap URL."
+        }
+      }
+    }
+  }
+}

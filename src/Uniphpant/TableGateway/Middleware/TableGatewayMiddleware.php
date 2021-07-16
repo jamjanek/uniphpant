@@ -38,39 +38,25 @@ class TableGatewayMiddleware implements Middleware
     public function process(Request $request, RequestHandler $handler): Response
     {
         $siteConfig = $request->getAttribute(SiteConfigMiddleware::ATTR_NAME);
-
-        $siteRouteConfig = $siteConfig['route'];
-
+        $tableGatewayConfigCollection = $siteConfig['table_gateway'];
+        $dataSourceConfigCollection = $siteConfig['data_source'];
         $tableGatewayCollection = new ArrayObject();
 
-        if(array_key_exists('table_gateway',$siteRouteConfig)) {
-            foreach($siteRouteConfig['table_gateway'] as $tableGatewayName) {
-                if(array_key_exists('table_gateway',$siteConfig)) {
-                    foreach($siteConfig['table_gateway'] as $tableGatewayConfig) {
-                        if($tableGatewayConfig['name']===$tableGatewayName) {
-                            // find adapter
-                            if (array_key_exists('data_source',$tableGatewayConfig)) {
-                                foreach($siteConfig['data_source'] as $dataSourceConfig) {
-                                    if($dataSourceConfig['name']===$tableGatewayConfig['data_source']) {
+        foreach($tableGatewayConfigCollection as $tableGatewayConfig) {
+            foreach($dataSourceConfigCollection as $dataSourceConfig) {
 
-                                        $dataAdapter = new dbAdapter($dataSourceConfig);
+                if($tableGatewayConfig['data_source']===$dataSourceConfig['name']) {
+                    $dataAdapter = new dbAdapter($dataSourceConfig);
+                    $tableGateway = new TableGateway(
+                        $tableGatewayConfig['table_name'],
+                        $dataAdapter
+                    );
 
-                                        $tableGateway = new TableGateway(
-                                            $tableGatewayConfig['table_name'],
-                                            $dataAdapter
-                                        );
-
-                                        $tableGatewayCollection->offsetSet(
-                                            $tableGatewayConfig['data_source'],
-                                            $tableGateway
-                                        );
-                                        break;
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    }
+                    $tableGatewayCollection->offsetSet(
+                        $tableGatewayConfig['name'],
+                        $tableGateway
+                    );
+                    break;
                 }
             }
         }

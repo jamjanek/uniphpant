@@ -1,0 +1,53 @@
+
+/*
+ * Carousel
+ */
+.carousel-indicators {
+    position: static;
+    justify-content: left;
+}
+.carousel-indicators li {
+    text-indent:0px;
+    height:auto;
+    width:100px;
+    background-color:transparent;
+}
+
+.carousel-indicators li img {
+    border:1px solid #212121;
+}
+.carousel-indicators li,
+.carousel-indicators img {
+    cursor: pointer;
+}
+.carousel-indicators li input[type="radio"] {
+    position: absolute;
+}
+.carousel-indicators li img {
+    position: relative;
+}
+.carousel-control {
+    position: absolute;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+}
+.carousel-control-prev {
+    top: 0;
+    bottom: 0;
+    left:0;
+}
+.carousel-control-next {
+    top: 0;
+    bottom: 0;
+    right:0;
+}
+.carousel-indicators.list-inline:first-child > li {
+    margin-left:0px;
+}

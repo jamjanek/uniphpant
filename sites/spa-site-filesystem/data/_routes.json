@@ -1,0 +1,25 @@
+{
+  "spa-site-filesystem": {
+    "site_id": "spa-site-filesystem",
+    "routes": {
+      "homepage": {
+        "get": {
+          "route": {
+            "repository": {
+              "repository-000": {
+                "uid": "repository-000"
+
+              }
+            }
+          }
+        },
+        "form": {
+        },
+        "processed": {
+        },
+        "result": {
+        }
+      }
+    }
+  }
+}

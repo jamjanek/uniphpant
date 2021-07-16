@@ -9,11 +9,11 @@ class BlockSeeder extends AbstractSeed
         $data = [
 
             [
-                'uid' => 'block-001',
+                'uid' => 'fdaf870a-8bfe-4867-b69a-b31d92c4fef6',
                 'content' => null,
                 'attributes' => '{}',
                 'parameters' => '{"html_tag":"div"}',
-                'comm' => 'header for tv',
+                'comm' => 'header wrapper',
                 'status' => 0,
                 'order' => 1,
                 'created' => date('Y-m-d H:i:s'),

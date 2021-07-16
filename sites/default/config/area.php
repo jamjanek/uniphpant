@@ -9,7 +9,7 @@ return [
                 'area' => [
                     'name' => 'area',
                     'table_name' => 'area',
-                    "adapter" => "area_db",
+                    "data_source" => "area_db",
                 ]
             ], // table_gateway
             'data_source' => [

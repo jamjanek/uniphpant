@@ -1,0 +1,42 @@
+{
+  "napohybel": {
+    "site_id": "napohybel",
+    "data": {
+        "area-000": {
+          "uid": "area-001",
+          "section": ["nav"],
+          "status": 1,
+          "order": 1,
+          "comm": "Navigation Area"
+        },
+        "area-001": {
+          "uid": "area-001",
+          "section": ["main"],
+          "status": 1,
+          "order": 2,
+          "comm": "Content Area"
+        },
+        "area-003": {
+          "uid": "area-003",
+          "section": ["footer-script"],
+          "status": 1,
+          "order": 4,
+          "comm": "Footer Script Area"
+        },
+        "area-009": {
+          "uid": "area-009",
+          "section": ["footer-scripts"],
+          "status": 1,
+          "order": 3,
+          "comm": "Footer Scripts Area"
+        },
+        "area-101": {
+          "uid": "area-101",
+          "section": ["head-meta"],
+          "status": 1,
+          "order": 0,
+          "comm": "Common Seo tags"
+        }
+    }
+  }
+}

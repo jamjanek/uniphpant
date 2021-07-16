@@ -16,7 +16,8 @@ class CreateAreaTable extends AbstractMigration
     {
         $table = $this->table(self::TABLE_NAME, ['id' => false, 'primary_key' => ['uid']]);
         $table->addColumn('uid', 'string', ['limit' => 64])
-            ->addColumn('section', 'string', ['limit' => 64], ['null' => true])
+            ->addColumn('section', 'string', ['limit' => 64,'null' => true])
+            ->addColumn('template_uid', 'string', ['limit' => 64,'null' => true])
             ->addColumn('attributes', 'string',['default' => '{}'])
             ->addColumn('status', 'integer', ['limit' => 8,'default' => 0])
             ->addColumn('order', 'integer', ['limit' => 8])

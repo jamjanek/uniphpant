@@ -1,0 +1,228 @@
+/*
+ * Globals
+ */
+
+body {
+    background-color: #000000;
+    background-image: url('/assets/images/bg-1.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: fixed;
+
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+/* Links */
+a,
+a:focus,
+a:hover {
+    color: #fff;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+    color: #333;
+    text-shadow: none; /* Prevent inheritance from `body` */
+    background-color: #fff;
+    border: .05rem solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+    height: 100%;
+    background-color: #000000;
+}
+
+body {
+    display: -ms-flexbox;
+    display: flex;
+    color: #fff;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+main {
+    background: rgba(0,0,0,0.75);
+
+}
+
+body,
+main,
+#myTabContent {
+    transition:all 3s ease-out;
+}
+
+.cover-container {
+    max-width: 42em;
+}
+
+
+/*
+ * Header
+ */
+.masthead {
+    margin-bottom: 2rem;
+}
+
+.masthead-brand {
+    margin-bottom: 0;
+}
+
+.nav-masthead .nav-link {
+    padding: .25rem 0;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .5);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+    border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+    margin-left: 1rem;
+}
+
+.nav-masthead .active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+@media (min-width: 48em) {
+    .masthead-brand {
+        float: left;
+    }
+    .nav-masthead {
+        float: right;
+    }
+}
+
+
+/*
+ * Cover
+ */
+.cover {
+    padding: 0 1.5rem;
+}
+.cover .btn-lg {
+    padding: .75rem 1.25rem;
+    font-weight: 700;
+}
+
+
+main.border-light {
+    border-color:#333;
+}
+main {
+    -webkit-box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.75);
+}
+
+.has-error {
+    border:1px solid red;
+}
+
+/*
+ * Footer
+ */
+.mastfoot {
+    color: rgba(255, 255, 255, .5);
+}
+
+/*
+ * Various
+ */
+
+/*
+ * Carousel
+ */
+.carousel-indicators {
+    position: static;
+    justify-content: left;
+}
+.carousel-indicators li {
+    text-indent:0px;
+    height:auto;
+    width:100px;
+    background-color:transparent;
+}
+
+.carousel-indicators li img {
+    border:1px solid #212121;
+}
+.carousel-indicators li,
+.carousel-indicators img {
+    cursor: pointer;
+}
+.carousel-indicators li input[type="radio"] {
+    position: absolute;
+}
+.carousel-indicators li img {
+    position: relative;
+}
+
+#menu #list {
+    /*max-height: 0;*/
+    /*transition: max-height 0.15s ease-out;*/
+    /*overflow: hidden;*/
+    /*background: #d5d5d5;*/
+}
+
+#myTabContent {
+    min-height: 400px;
+}
+
+.carousel-control {
+    position: absolute;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+}
+.carousel-control-prev {
+    top: 0;
+    bottom: 0;
+    left:0;
+}
+.carousel-control-next {
+    top: 0;
+    bottom: 0;
+    right:0;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #666;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin .5s linear infinite; /* Safari */
+    animation: spin .5s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

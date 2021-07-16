@@ -16,7 +16,7 @@ use Laminas\Db\Adapter\Adapter as dbAdapter;
 use Laminas\Db\TableGateway\TableGateway;
 
 /**
- * Attribute: site_route
+ * Attribute: site_route_data
  */
 
 class RouteDataMiddleware implements Middleware
@@ -24,7 +24,7 @@ class RouteDataMiddleware implements Middleware
     private $logger;
     private $tableGatewayService;
 
-    const ATTR_NAME = "site_route";
+    const ATTR_NAME = "site_route_data";
 
     public function __construct(LoggerInterface $logger, TableGatewayService $tableGatewayService)
     {
@@ -37,50 +37,12 @@ class RouteDataMiddleware implements Middleware
      */
     public function process(Request $request, RequestHandler $handler): Response
     {
-        $routeMethods = $request->getAttribute(FetchRouteMiddleware::ATTR_NAME)->getMethods();
         $routeName = $request->getAttribute(FetchRouteMiddleware::ATTR_NAME)->getName();
-        $siteConfig = $request->getAttribute(SiteConfigMiddleware::ATTR_NAME);
+        $routeGateway = $request->getAttribute("table_gateway")->offsetGet('route');
 
-        $siteRouteConfig = $siteConfig['route'];
+        $result = $routeGateway->select(['route_name'=>$routeName])->current();
 
-        $tableGatewayCollection = new ArrayObject();
-
-        if(array_key_exists('table_gateway',$siteRouteConfig)) {
-            foreach($siteRouteConfig['table_gateway'] as $tableGatewayName) {
-                if(array_key_exists('table_gateway',$siteConfig)) {
-                    foreach($siteConfig['table_gateway'] as $tableGatewayConfig) {
-                        if($tableGatewayConfig['name']===$tableGatewayName) {
-                            // find adapter
-                            if (array_key_exists('data_source',$tableGatewayConfig)) {
-                                foreach($siteConfig['data_source'] as $dataSourceConfig) {
-                                    if($dataSourceConfig['name']===$tableGatewayConfig['data_source']) {
-                                        $dataAdapter = new dbAdapter($dataSourceConfig);
-                                        $tableGateway = new TableGateway(
-                                            $tableGatewayConfig,
-                                            $dataAdapter
-                                        );
-                                        $tableGatewayCollection->offsetSet(
-                                            $tableGatewayConfig,
-                                            $tableGateway
-                                        );
-                                    }
-                                    break;
-                                }
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-var_dump($siteConfig);die();
-var_dump($this->tableGatewayService);die();
-//var_dump($routeName);die();
-
-        $routeContext = RouteContext::fromRequest($request);
-        $route = $routeContext->getRoute();
-        $request = $request->withAttribute(self::ATTR_NAME, $route);
+        $request = $request->withAttribute(self::ATTR_NAME, $result);
 
         return $handler->handle($request);
     }

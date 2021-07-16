@@ -1,0 +1,64 @@
+{
+  "spa-site-filesystem": {
+    "site_id": "spa-site-filesystem",
+    "data": {
+      "page" : {
+        "page-001": {
+          "uid": "page-001",
+          "methods": ["get"],
+          "route_uid": "route-001",
+          "template_uid": "template-001",
+          "page_name": "homepage",
+          "page_layout": "layout::default",
+          "page_cache": false,
+          "status": 1,
+          "comm": "Display Homepage Layout."
+        },
+        "page-002": {
+          "uid": "page-002",
+          "methods": ["post"],
+          "route_uid": "route-002",
+          "template_uid": "template-002",
+          "page_name": "form_display",
+          "page_layout": "layout::blank",
+          "page_cache": false,
+          "status": 1,
+          "comm": "Display Form."
+        },
+        "page-003": {
+          "uid": "page-003",
+          "methods": ["post"],
+          "route_uid": "route-003",
+          "template_uid": "template-003",
+          "page_name": "form_submit",
+          "page_layout": "layout::default",
+          "page_cache": false,
+          "status": 1,
+          "comm": "User submits Form. Display Layout with AjaxImageLoader."
+        },
+        "page-004": {
+          "uid": "page-004",
+          "methods": ["get"],
+          "route_uid": "route-004",
+          "template_uid": "template-004",
+          "page_name": "processed",
+          "page_layout": "layout::default",
+          "page_cache": false,
+          "status": 1,
+          "comm": "Display processed Image."
+        },
+        "page-005": {
+          "uid": "page-005",
+          "methods": ["get"],
+          "route_uid": "route-005",
+          "template_uid": "template-005",
+          "page_name": "result",
+          "page_layout": "layout::default",
+          "page_cache": false,
+          "status": 1,
+          "comm": "Display Terms and Conditions."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "spa-site-filesystem": {
+    "site_id": "spa-site-filesystem",
+    "data": {
+      "content" : {
+        "seo-101": {
+          "uid": "seo-101",
+          "type": "text",
+          "content": "Pasek TVP",
+          "attributes": {},
+          "parameters": {
+            "html_tag":"title"
+          },
+          "status": 1
+        },
+        "seo-102": {
+          "uid": "seo-102",
+          "type": "text",
+          "content": null,
+          "attributes": {
+            "name": "description",
+            "content": "Generator Paska TVP"
+          },
+          "parameters": {
+            "html_tag":"meta"
+          },
+          "status": 1
+        },
+        "seo-103": {
+          "uid": "seo-103",
+          "type": "text",
+          "content": null,
+          "attributes": {
+            "name": "keywords",
+            "content": "pasek tvp, tvp info, generator, meme"
+          },
+          "parameters": {
+            "html_tag":"meta"
+          },
+          "status": 1
+        },
+        "seo-104": {
+          "uid": "seo-104",
+          "type": "text",
+          "content": null,
+          "attributes": {
+            "name": "robots",
+            "content": "index, follow"
+          },
+          "parameters": {
+            "html_tag":"meta"
+          },
+          "status": 1
+        },
+        "seo-105": {
+          "uid": "seo-105",
+          "type": "text",
+          "content": null,
+          "attributes": {
+            "charset": "UTF-8"
+          },
+          "parameters": {
+            "html_tag":"meta"
+          },
+          "status": 1
+        },
+        "seo-106": {
+          "uid": "seo-106",
+          "type": "text",
+          "content": null,
+          "attributes": {
+            "http-equiv": "X-UA-Compatible",
+            "content": "IE=edge,chrome=1"
+          },
+          "parameters": {
+            "html_tag":"meta"
+          },
+          "status": 1
+        },
+        "seo-107": {
+          "uid": "seo-107",
+          "type": "text",
+          "content": null,
+          "attributes": {
+            "name": "viewport",
+            "content": "width=device-width, initial-scale=1, maximum-scale=1"
+          },
+          "parameters": {
+            "html_tag":"meta"
+          },
+          "status": 1
+        }
+      }
+    }
+  }
+}

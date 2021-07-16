@@ -9,7 +9,7 @@ return [
                 'block' => [
                     'name' => 'block',
                     'table_name' => 'block',
-                    "adapter" => "block_db",
+                    "data_source" => "block_db",
                 ]
             ], // table_gateway
             'data_source' => [
