@@ -4,9 +4,12 @@ declare(strict_types=1);
 namespace App\Uniphpant\Actions;
 
 use App\Application\Actions\Action;
+use App\Uniphpant\Domain\PageEntity;
+use App\Uniphpant\Domain\TemplateEntity;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Log\LoggerInterface;
 use Slim\Views\PhpRenderer;
+use App\Uniphpant\Domain\CommonEntity;
 
 class RequestAction extends Action
 {
@@ -30,19 +33,22 @@ class RequestAction extends Action
 
         $currentRouteData = $this->request->getAttribute('site_route_data');
         #TODO: PageModel
-        $currentPage = $this->request->getAttribute('table_gateway')
+        $currentPageData = $this->request->getAttribute('table_gateway')
             ->offsetGet('page')
-            ->select(['route_uid'=>$currentRouteData['uid'],'status'=>1])
+            ->select(['route_uid'=>$currentRouteData[PageEntity::IDENTIFIER],'status'=>1])
             ->current();
+        $currentPage = new PageEntity($currentPageData);
         #TODO: TemplateModel
-        $currentTemplate = $this->request->getAttribute('table_gateway')
+        $currentTemplateData = $this->request->getAttribute('table_gateway')
             ->offsetGet('template')
-            ->select(['route_uid'=>$currentRouteData['uid'],'status'=>1])
+            ->select(['route_uid'=>$currentRouteData[TemplateEntity::IDENTIFIER],'status'=>1])
             ->current();
+        $currentTemplate = new TemplateEntity($currentTemplateData);
         #TODO: AreaModel
-        $areaCollection = $this->request->getAttribute('table_gateway')
+        $areaCollectionData = $this->request->getAttribute('table_gateway')
             ->offsetGet('area')
-            ->select(['template_uid'=>$currentTemplate['uid'],'status'=>1]);
+            ->select(['template_uid'=>$currentTemplate->getIdentifier(),'status'=>1]);
+        var_dump($areaCollectionData->count());die();
         #TODO: AreaBlockModel
         $areaBlockGateway = $this->request->getAttribute('table_gateway')
             ->offsetGet('area_block');

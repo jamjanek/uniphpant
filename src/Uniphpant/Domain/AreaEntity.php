@@ -12,13 +12,9 @@ use App\Uniphpant\Domain\CommonEntity;
  */
 class AreaEntity extends CommonEntity
 {
+
     const ALIAS = "area_entity";
     const TABLE="area";
-
-    /**
-     * @var string
-     */
-    protected $uid;
 
     /**
      * @var string|null
@@ -54,29 +50,6 @@ class AreaEntity extends CommonEntity
      * @var string|null
      */
     protected $updated;
-
-    public function __construct()
-    {
-
-    }
-
-    /**
-     * @return string
-     */
-    public function getUid(): string
-    {
-        return $this->uid;
-    }
-
-    /**
-     * @param string $uid
-     * @return AreaEntity
-     */
-    public function setUid(string $uid): AreaEntity
-    {
-        $this->uid = $uid;
-        return $this;
-    }
 
     /**
      * @return string|null
