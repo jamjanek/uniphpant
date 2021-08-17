@@ -19,7 +19,7 @@ return function (ContainerBuilder $containerBuilder) {
                     'level' => Logger::DEBUG,
                 ],
                 'app' => [
-                    'declaration' => [
+                    'site' => [
                         'glob_paths' => 'site-*.{json,yaml,php}',
                         'cache_enabled' => (isset($_ENV['APP_CACHE_ENABLED']))?$_ENV['APP_CACHE_ENABLED']:false,
                         'cache_perm' => 665,
@@ -32,14 +32,14 @@ return function (ContainerBuilder $containerBuilder) {
                         "site_id" => "default",
                         "dir_path" => "default"
                     ],
-                    'settings' => [
+                    'site_settings' => [
                         'glob_paths' => '/site.{json,yaml,php}',
                         'cache_enabled' => (isset($_ENV['SITE_CACHE_ENABLED']))?$_ENV['SITE_CACHE_ENABLED']:false,
                         'cache_perm' => 665,
                         'cache_dir' => 'var/cache/',
                         'cache_key' => 'site_settings_cache',
                     ],
-                    'config' => [
+                    'site_config' => [
                         'glob_paths' => 'config/*.{json,yaml,php}',
                         'cache_enabled' => (isset($_ENV['SITE_CACHE_ENABLED']))?$_ENV['SITE_CACHE_ENABLED']:false,
                         'cache_perm' => 665,

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Uniphpant\TableGateway\Service;
 
-use Zend\Db\TableGateway\TableGateway;
-use ArrayObject;
+use Laminas\Db\TableGateway\TableGateway;
+use App\Uniphpant\TableGateway\Domain\TableGatewayCollection;
 
 /**
  * Class TableGatewayService
@@ -12,12 +12,11 @@ use ArrayObject;
  */
 class TableGatewayService
 {
-    protected $tableGatewayCollection;
+    protected TableGatewayCollection $tableGatewayCollection;
 
-//    public function __construct(ArrayObject $tableGatewayCollection)
-    public function __construct()
+    public function __construct(TableGatewayCollection $tableGatewayCollection)
     {
-//        $this->tableGatewayCollection = $tableGatewayCollection;
+        $this->tableGatewayCollection = $tableGatewayCollection;
     }
 
     public function getTableGateway(string $name): TableGateway

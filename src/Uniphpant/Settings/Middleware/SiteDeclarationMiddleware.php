@@ -24,7 +24,7 @@ class SiteDeclarationMiddleware implements Middleware
     const ATTR_NAME = "site_declaration";
 
     const TYPE="app";
-    const INDEX = "declaration";
+    const INDEX = "site";
 
     private $logger;
 

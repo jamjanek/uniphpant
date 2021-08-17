@@ -1,0 +1,10 @@
+{
+  "api": {
+    "api-default": {
+      "api-id": "default",
+      "host":"api.uniphant.local.vm",
+      "hosts": ["localhost:8889","localhost","api.uniphpant.local.vm:80","api.uniphpant.local.vm"],
+      "dir_path": "default"
+    }
+  }
+}

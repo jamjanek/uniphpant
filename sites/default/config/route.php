@@ -2,25 +2,16 @@
 return [
     'site' => [
         'config' => [
+            'route' => [
+                'table_gateway' => ["route"]
+            ],
             'table_gateway' => [
                 'route' => [
                     'name' => 'route',
                     'table_name' => 'route',
-                    "data_source" => "route_db",
+                    "data_source" => "application_database",
                 ]
             ], // table_gateway
-            'data_source' => [
-                'route_db' => [
-                    'name' => 'route_db', // this matches entry in the `table_gateway` config entry
-                    "site_id" => null,
-                    'type' => 'db_adapter',
-                    'driver'   => 'Pdo_Sqlite',
-                    'database' =>  __DIR__ . '/../../../var/data/database/content-default--development.sqlite3',
-                ]
-            ], // data_source
-            'route' => [
-                'table_gateway' => ["route"]
-            ]
         ]
     ]
 ];

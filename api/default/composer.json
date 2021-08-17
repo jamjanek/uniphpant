@@ -1,0 +1,41 @@
+{
+    "name": "secalith/uniphpant-api",
+    "description": "A Slim Framework API application.",
+    "keywords": [
+        "microframework",
+        "rest",
+        "router",
+        "psr7"
+    ],
+    "homepage": "https://github.com/janfkowalski/uniphpant",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan F Kowalski",
+            "email": "jan@secalith.pl",
+            "homepage": "https://www.uniphpant.secalith.pl/"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "laminas/laminas-config": "^3.5",
+        "laminas/laminas-config-aggregator": "^1.5",
+        "laminas/laminas-db": "^2.12",
+        "laminas/laminas-hydrator": "^4.2"
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "start": "php -S localhost:8089-t public",
+        "test": "phpunit --configuration phpunit.xml",
+        "test:coverage": "phpunit --configuration phpunit.xml --coverage-clover build/logs/clover.xml --coverage-html build/coverage"
+    }
+}

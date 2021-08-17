@@ -4,6 +4,7 @@ declare(strict_types=1);
 use App\Uniphpant\Settings\Reader\Json as JsonReader;
 use App\Uniphpant\Settings\Reader\JsonInterface;
 use App\Uniphpant\Settings\SettingsInterface;
+use App\Uniphpant\Settings\Service\SPASettingsService;
 use App\Uniphpant\TableGateway\Service\TableGatewayService;
 use App\Uniphpant\Uri\Uri;
 use App\Uniphpant\Uri\UriInterface;
@@ -40,6 +41,8 @@ return function (ContainerBuilder $containerBuilder) {
         JsonInterface::class => function (ContainerInterface $c) {
             return new JsonReader();
         },
+        TableGatewayService::class => \DI\autowire(TableGatewayService::class),
+//        SPASettingsService::class => \DI\autowire(SPASettingsService::class)
 //        TableGatewayService::class => function(ContainerInterface $c) {
 //            // @POC
 //            //It collects and initializes all table_gateway found in config

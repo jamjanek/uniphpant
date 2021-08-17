@@ -24,7 +24,7 @@ trait EntityTrait
     {
         return $this->uid;
     }
-    public function setUid(string $uid):self
+    public function setUid(string $uid)
     {
         $this->uid = $uid;
 

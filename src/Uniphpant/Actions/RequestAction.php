@@ -4,12 +4,18 @@ declare(strict_types=1);
 namespace App\Uniphpant\Actions;
 
 use App\Application\Actions\Action;
+use App\Uniphpant\Domain\AreaEntity;
+use App\Uniphpant\Domain\CommonEntity;
 use App\Uniphpant\Domain\PageEntity;
 use App\Uniphpant\Domain\TemplateEntity;
+use DomainException;
+use Laminas\Db\Adapter\Driver\ResultInterface;
+use Laminas\Db\ResultSet\HydratingResultSet;
+use Laminas\Db\ResultSet\ResultSetInterface;
+use Laminas\Hydrator\ReflectionHydrator;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Log\LoggerInterface;
 use Slim\Views\PhpRenderer;
-use App\Uniphpant\Domain\CommonEntity;
 
 class RequestAction extends Action
 {
@@ -37,18 +43,107 @@ class RequestAction extends Action
             ->offsetGet('page')
             ->select(['route_uid'=>$currentRouteData[PageEntity::IDENTIFIER],'status'=>1])
             ->current();
-        $currentPage = new PageEntity($currentPageData);
+        $pageResultSet = new HydratingResultSet(
+            new ReflectionHydrator(),
+            new PageEntity($currentPageData->offsetGet('uid'))
+        );
+        $currentPage = new PageEntity($currentPageData->offsetGet('uid'));
         #TODO: TemplateModel
         $currentTemplateData = $this->request->getAttribute('table_gateway')
             ->offsetGet('template')
             ->select(['route_uid'=>$currentRouteData[TemplateEntity::IDENTIFIER],'status'=>1])
             ->current();
         $currentTemplate = new TemplateEntity($currentTemplateData);
+//        $resultSet = new HydratingResultSet(
+//            new ReflectionHydrator(),
+//            new TemplateEntity($currentTemplateData)
+//        );
         #TODO: AreaModel
-        $areaCollectionData = $this->request->getAttribute('table_gateway')
+        /* @var Laminas\Db\ResultSet\ResultSetInterface $areaCollectionResult */
+        $areaCollectionResultSet = $this->request->getAttribute('table_gateway')
             ->offsetGet('area')
             ->select(['template_uid'=>$currentTemplate->getIdentifier(),'status'=>1]);
-        var_dump($areaCollectionData->count());die();
+        if ($areaCollectionResultSet->count() === 0) {
+            throw new DomainException('User not found', 404);
+        } else {
+
+//            foreach() {
+//
+//            }
+
+            $strategy = new \Laminas\Hydrator\Strategy\CollectionStrategy(
+                new \Laminas\Hydrator\ObjectPropertyHydrator(),
+                \stdClass::class
+            );
+//            var_dump($areaCollectionResultSet->toArray());die();
+//            $hydrated = $strategy->hydrate([
+//                $areaCollectionResultSet->toArray()
+//                // …
+//            ]);
+//            var_dump($hydrated);
+
+//
+//            $resultSet = new HydratingResultSet(new ReflectionHydrator, new AreaEntity);
+//            $resultSet->initialize($areaCollectionResult);
+//var_dumP($resultSet);
+
+            while($areaCollectionResultSet->valid()) {
+                $c = $areaCollectionResultSet->current();
+                var_dump($c);
+
+//                $hydrated = $strategy->hydrate([$c]);
+
+                echo 7;
+                $areaCollectionResultSet->next();
+            }
+        }
+
+        die();
+
+        $resultSet = new HydratingResultSet(new ReflectionHydrator, new AreaEntity());
+        $resultSet->initialize($areaCollectionResult);
+        foreach($areaCollectionResult as $result) {
+
+
+            var_dump($result);
+        }
+
+        die();
+var_dump($areaCollectionResult instanceof ResultSetInterface);
+        if ($areaCollectionResult instanceof ResultSetInterface) {
+            $resultSet = new HydratingResultSet(new ReflectionHydrator, new AreaEntity());
+            $resultSet->initialize($areaCollectionResult);
+
+            foreach ($resultSet as $user) {
+                echo $user->getUid() . ' ' . $user->getSection() . PHP_EOL;
+            }
+        }
+
+        if($areaCollectionResult->count()>0) {
+
+
+
+var_dump($areaCollectionResult);die();
+
+
+
+            $pageStrategy = new \Laminas\Hydrator\Strategy\CollectionStrategy(
+                new \Laminas\Hydrator\ObjectPropertyHydrator(),
+                PageEntity::class
+            );
+            var_dump($currentPageData->getArrayCopy());
+            die();
+            $extracted = $pageStrategy->extract($currentPageData->getArrayCopy());
+
+            var_dump($extracted);
+            die();
+
+
+
+
+
+        }
+        var_dump($areaCollectionData);die();
         #TODO: AreaBlockModel
         $areaBlockGateway = $this->request->getAttribute('table_gateway')
             ->offsetGet('area_block');

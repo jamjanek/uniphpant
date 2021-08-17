@@ -2,18 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Uniphpant\Domain;
+namespace App\Uniphpant\SPA\Area\Domain;
 
 use App\Uniphpant\Domain\CommonEntity;
 
 /**
  * Class AreaEntity
- * @package App\Uniphpant\Domain
+ * @package App\Uniphpant\SPA\Area
  */
 class AreaEntity extends CommonEntity
 {
 
-    const ALIAS = "area_entity";
+    const INDEX = "area";
+    const ALIAS = "area_item";
     const TABLE="area";
 
     /**
@@ -50,6 +51,10 @@ class AreaEntity extends CommonEntity
      * @var string|null
      */
     protected $updated;
+
+    public function __construct(string $uid) {
+
+    }
 
     /**
      * @return string|null

@@ -13,6 +13,9 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface as Middleware;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Psr\Log\LoggerInterface;
+use App\Uniphpant\Settings\Domain\SPASettingsEntity;
+use App\Uniphpant\Settings\Service\SiteSettingsService;
+use App\Uniphpant\Settings\Service\SPASettingsService;
 
 class SiteSettingsMiddleware implements Middleware
 {
@@ -22,40 +25,44 @@ class SiteSettingsMiddleware implements Middleware
 
     private $logger;
 
-    protected $settings;
+    protected $site_settings_service;
+    protected $spa_settings_service;
 
-    public function __construct(LoggerInterface $logger, SettingsInterface $settings)
+    public function __construct(LoggerInterface $logger, SiteSettingsService $site_settings_service, SPASettingsService $spa_settings_service)
     {
         $this->logger = $logger;
-        $this->settings = $settings;
+        $this->site_settings_service = $site_settings_service;
+        $this->spa_settings_service = $spa_settings_service;
     }
 
     public function process(Request $request, RequestHandler $handler): Response
     {
+
         $siteId = $request->getAttribute(SiteIdMiddleware::ATTR_NAME);
         $siteDeclaration = $request->getAttribute(SiteDeclarationMiddleware::ATTR_NAME);
-        $spaSettings = $request->getAttribute(SPASettingsMiddleware::ATTR_NAME);
-
+        $spaSettings = $request->getAttribute(SPASettingsEntity::ATTR_NAME);
+var_dump($this->site_settings_service);
+var_dump($this->spa_settings_service);die();
         $siteSettingsPath = sprintf(
             "%s/../../../../sites/%s/%s",
             __DIR__,
             $siteDeclaration['dir_path'],
-            $spaSettings[self::INDEX]['glob_paths']
+            $spaSettings->get(self::INDEX)['glob_paths']
         );
         $cachePath = sprintf(
             "%s/../../../../sites/%s/%s",
             __DIR__,
             $siteDeclaration['dir_path'],
-            $spaSettings[self::INDEX]['cache_dir']
+            $spaSettings->get(self::INDEX)['cache_dir']
         );
 
-        $cachedConfigFile = $cachePath . $spaSettings[self::INDEX]['cache_key'] .'.php';
+        $cachedConfigFile = $cachePath . $spaSettings->get(self::INDEX)['cache_key'] .'.php';
 
         $aggregator = new ConfigAggregator(
             [
                 new ArrayProvider([
-                    ConfigAggregator::ENABLE_CACHE => $spaSettings[self::INDEX]['cache_enabled'],
-                    ConfigAggregator::CACHE_FILEMODE => $spaSettings[self::INDEX]['cache_perm']
+                    ConfigAggregator::ENABLE_CACHE => $spaSettings->get(self::INDEX)['cache_enabled'],
+                    ConfigAggregator::CACHE_FILEMODE => $spaSettings->get(self::INDEX)['cache_perm']
                 ]),
                 new LaminasConfigProvider($siteSettingsPath),
             ],

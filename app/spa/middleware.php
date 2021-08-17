@@ -40,10 +40,10 @@ return function (App $app) {
     $app->add(SiteConfigMiddleware::class);
     $app->add(FetchRouteMiddleware::class);
     $app->add(SiteSettingsMiddleware::class);
-    $app->add(SiteIdMiddleware::class);
+
     $app->add(SiteDeclarationMiddleware::class);
     $app->add(SPASettingsMiddleware::class);
     $app->add(AppSettingsMiddleware::class);
-    $app->add(HostNameMiddleware::class);
+    $app->add(SiteIdMiddleware::class);$app->add(HostNameMiddleware::class);
     $app->add(CurrentHostMiddleware::class);
 };

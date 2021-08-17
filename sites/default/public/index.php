@@ -11,4 +11,4 @@ if(file_exists(__DIR__.'/../.env')) {
     $dotenv->load(__DIR__.'/../.env');
 }
 
-require_once __DIR__ . "/../../../public/index.php";
+require_once __DIR__ . "/../../../public/spa.php";

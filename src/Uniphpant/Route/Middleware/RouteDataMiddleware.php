@@ -38,6 +38,7 @@ class RouteDataMiddleware implements Middleware
     public function process(Request $request, RequestHandler $handler): Response
     {
         $routeName = $request->getAttribute(FetchRouteMiddleware::ATTR_NAME)->getName();
+        var_dump($routeName);die();
         $routeGateway = $request->getAttribute("table_gateway")->offsetGet('route');
 
         $result = $routeGateway->select(['route_name'=>$routeName])->current();

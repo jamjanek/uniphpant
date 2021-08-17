@@ -12,5 +12,5 @@ interface EntityInterface
 {
     public function getIdentifier():?string;
     public function getUid():?string;
-    public function setUid(string $uid):self;
+    public function setUid(string $uid);
 }

@@ -51,16 +51,25 @@ class PageEntity extends CommonEntity
      */
     protected $updated;
 
-    public function __construct(\ArrayObject $entityData)
+    public function __construct(
+        ?string $uid=null,
+        ?string $methods = null,
+        ?string $route_uid = null,
+        ?string $template_uid = null,
+        ?string $status = null,
+        ?string $comm = null,
+        ?string $created = null,
+        ?string $updated = null
+    )
     {
-        $this->uid = $entityData->offsetGet('uid');
-        $this->methods = $entityData->offsetGet('methods');
-        $this->route_uid = $entityData->offsetGet('route_uid');
-        $this->template_uid = $entityData->offsetGet('template_uid');
-        $this->status = $entityData->offsetGet('status');
-        $this->comm = $entityData->offsetGet('comm');
-        $this->created = $entityData->offsetGet('created');
-        $this->updated = $entityData->offsetGet('updated');
+        $this->uid = $uid;
+        $this->methods = $methods;
+        $this->route_uid = $route_uid;
+        $this->template_uid = $template_uid;
+        $this->status = $status;
+        $this->comm = $comm;
+        $this->created = $created;
+        $this->updated = $updated;
     }
 
     /**
@@ -75,7 +84,7 @@ class PageEntity extends CommonEntity
      * @param string|null $methods
      * @return PageEntity
      */
-    public function setMethods(?string $methods): PageEntity
+    public function setMethods(?string $methods)
     {
         $this->methods = $methods;
         return $this;
@@ -93,7 +102,7 @@ class PageEntity extends CommonEntity
      * @param string|null $route_uid
      * @return PageEntity
      */
-    public function setRouteUid(?string $route_uid): PageEntity
+    public function setRouteUid(?string $route_uid)
     {
         $this->route_uid = $route_uid;
         return $this;
@@ -111,7 +120,7 @@ class PageEntity extends CommonEntity
      * @param string|null $template_uid
      * @return PageEntity
      */
-    public function setTemplateUid(?string $template_uid): PageEntity
+    public function setTemplateUid(?string $template_uid)
     {
         $this->template_uid = $template_uid;
         return $this;
@@ -129,7 +138,7 @@ class PageEntity extends CommonEntity
      * @param string|null $status
      * @return PageEntity
      */
-    public function setStatus(?string $status): PageEntity
+    public function setStatus(?string $status)
     {
         $this->status = $status;
         return $this;
@@ -147,7 +156,7 @@ class PageEntity extends CommonEntity
      * @param string|null $comm
      * @return PageEntity
      */
-    public function setComm(?string $comm): PageEntity
+    public function setComm(?string $comm)
     {
         $this->comm = $comm;
         return $this;
@@ -165,7 +174,7 @@ class PageEntity extends CommonEntity
      * @param string|null $created
      * @return PageEntity
      */
-    public function setCreated(?string $created): PageEntity
+    public function setCreated(?string $created)
     {
         $this->created = $created;
         return $this;
@@ -183,7 +192,7 @@ class PageEntity extends CommonEntity
      * @param string|null $updated
      * @return PageEntity
      */
-    public function setUpdated(?string $updated): PageEntity
+    public function setUpdated(?string $updated)
     {
         $this->updated = $updated;
         return $this;

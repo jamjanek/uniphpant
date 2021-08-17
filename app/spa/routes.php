@@ -18,6 +18,6 @@ return function (App $app) {
         $group->get('', RequestAction::class)
             ->setName("request");
 //        $group->post('', ProcessAction::class)->setName('process');
-//        $group->get('{uid}', ResponseAction::class)->setName('response');
+//        $group->get('{uid}', ResponseAction::class)->setName('resource');
     });
 };

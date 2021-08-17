@@ -13,6 +13,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface as Middleware;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Psr\Log\LoggerInterface;
+use App\Uniphpant\Settings\Domain\SPASettingsEntity;
 
 class SiteConfigMiddleware implements Middleware
 {
@@ -23,15 +24,14 @@ class SiteConfigMiddleware implements Middleware
 
     private $logger;
 
-    public function __construct(LoggerInterface $logger
-    )
+    public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
 
     public function process(Request $request, RequestHandler $handler): Response
     {
-        $spaSettings = $request->getAttribute(SPASettingsMiddleware::ATTR_NAME);
+        $spaSettings = $request->getAttribute(SPASettingsEntity::ATTR_NAME);
         $siteDeclaration = $request->getAttribute(SiteDeclarationMiddleware::ATTR_NAME);
 
         $siteConfigPath = sprintf(

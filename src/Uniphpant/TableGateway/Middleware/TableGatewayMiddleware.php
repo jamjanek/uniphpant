@@ -21,8 +21,8 @@ use Laminas\Db\TableGateway\TableGateway;
 
 class TableGatewayMiddleware implements Middleware
 {
-    private $logger;
-    private $tableGatewayService;
+    private LoggerInterface $logger;
+    private TableGatewayService $tableGatewayService;
 
     const ATTR_NAME = "table_gateway";
 
@@ -41,7 +41,7 @@ class TableGatewayMiddleware implements Middleware
         $tableGatewayConfigCollection = $siteConfig['table_gateway'];
         $dataSourceConfigCollection = $siteConfig['data_source'];
         $tableGatewayCollection = new ArrayObject();
-
+var_dump($tableGatewayConfigCollection);die();
         foreach($tableGatewayConfigCollection as $tableGatewayConfig) {
             foreach($dataSourceConfigCollection as $dataSourceConfig) {
 
@@ -51,7 +51,14 @@ class TableGatewayMiddleware implements Middleware
                         $tableGatewayConfig['table_name'],
                         $dataAdapter
                     );
-
+var_dump($siteConfig);
+                    if(array_key_exists('data_resource',$tableGatewayConfig)) {var_dump($tableGatewayConfig['data_resource']);
+                        if(array_key_exists('class',$tableGatewayConfig['data_resource'])) {
+                            $class = new $tableGatewayConfig['data_resource']['class'];
+                            var_dump($class);
+                        }
+                    }
+die();
                     $tableGatewayCollection->offsetSet(
                         $tableGatewayConfig['name'],
                         $tableGateway
